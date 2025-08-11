@@ -1,9 +1,9 @@
 "use client"
 
 import * as React from "react"
-import { Code, Server, Database, Cog, Star } from "lucide-react"
-
+import { Code, Server, Database, Cog, Star, ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
 
 const skillsData = {
   frontend: [
@@ -38,63 +38,131 @@ const skillsData = {
   ],
 }
 
-const categoryIcons: { [key: string]: React.ReactNode } = {
-  frontend: <Code />,
-  backend: <Server />,
-  databases: <Database />,
-  tools: <Cog />,
-  others: <Star />,
+const categoryIcons: { [key: string]: React.ElementType } = {
+  frontend: Code,
+  backend: Server,
+  databases: Database,
+  tools: Cog,
+  others: Star,
 }
 
 type Category = keyof typeof skillsData
 
-export function SkillsSection() {
-  const [activeTab, setActiveTab] = React.useState<Category>("frontend")
+const SkillCard = ({ category, skills }: { category: Category; skills: { name: string; level: number }[] }) => {
+  const Icon = categoryIcons[category]
+  const title = category === "tools" ? "Tools & DevOps" : category.charAt(0).toUpperCase() + category.slice(1);
+  return (
+    <div className="bg-card text-card-foreground rounded-xl shadow-md p-6 w-64 md:w-72 flex flex-col h-full">
+      <div className="flex items-center gap-3 mb-4">
+        <Icon className="h-6 w-6 text-primary" />
+        <h3 className="text-xl font-bold">{title}</h3>
+      </div>
+      <div className="space-y-4">
+        {skills.map((skill) => (
+          <div key={skill.name}>
+            <span className="font-medium text-sm">{skill.name}</span>
+            <div className="w-full h-2 rounded-full bg-secondary mt-1">
+              <div
+                className="h-full rounded-full bg-primary"
+                style={{ width: `${skill.level}%` }}
+                aria-label={`${skill.name} proficiency ${skill.level}%`}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
+export function SkillsSection() {
   const categories = Object.keys(skillsData) as Category[]
+  const [activeIndex, setActiveIndex] = React.useState(0)
+  const touchStartX = React.useRef(0)
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % categories.length)
+  }
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + categories.length) % categories.length)
+  }
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === 0) return
+    const touchEndX = e.touches[0].clientX
+    const diff = touchStartX.current - touchEndX
+    if (Math.abs(diff) > 50) { // Threshold to detect swipe
+      if (diff > 0) {
+        handleNext()
+      } else {
+        handlePrev()
+      }
+      touchStartX.current = 0 // Reset after swipe
+    }
+  }
+
+  const cardAngle = 360 / categories.length
+  // Adjust translateZ based on card width and number of cards to form a nice circle
+  const radius = (200 / Math.tan(Math.PI / categories.length)) * 0.8 
 
   return (
-    <section id="skills" className="py-20 md:py-24 bg-background">
+    <section id="skills" className="py-20 md:py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-center mb-12">My Tech Stack</h2>
-        <div className="max-w-4xl mx-auto p-6 sm:p-8 rounded-xl shadow-md bg-card">
-          <nav className="mb-8">
-            <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide -mx-6 px-6 md:flex-wrap md:justify-center md:gap-2 md:mx-0 md:px-0 md:overflow-x-visible md:snap-none">
-              {categories.map((category) => (
-                <button
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-center mb-16">My Tech Stack</h2>
+        <div className="relative h-96 w-full flex items-center justify-center" style={{ perspective: '1000px' }}>
+          <div
+            className="absolute w-full h-full transition-transform duration-500 ease-in-out"
+            style={{
+              transformStyle: 'preserve-3d',
+              transform: `rotateY(${-activeIndex * cardAngle}deg)`,
+            }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+          >
+            {categories.map((category, index) => {
+              const angle = index * cardAngle
+              return (
+                <div
                   key={category}
-                  onClick={() => setActiveTab(category)}
-                  aria-current={activeTab === category ? "true" : "false"}
-                  className={cn(
-                    "flex-shrink-0 snap-center px-4 py-2 rounded-full text-sm font-medium transition-colors",
-                    activeTab === category
-                      ? "bg-primary/20 text-primary font-semibold"
-                      : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                  )}
+                  className="absolute top-1/2 left-1/2 -mt-40 -ml-32 md:-ml-36 transition-all duration-500 ease-in-out"
+                  style={{
+                    transform: `rotateY(${angle}deg) translateZ(${radius}px) ${
+                      activeIndex === index ? 'scale(1.05)' : 'scale(0.9)'
+                    } ${activeIndex !== index ? 'translateY(10px)' : 'translateY(0)'}`,
+                    opacity: activeIndex === index ? 1 : 0.7,
+                    zIndex: activeIndex === index ? categories.length : categories.length - Math.abs(activeIndex - index),
+                  }}
                 >
-                  <span className="capitalize">{category === "tools" ? "Tools/DevOps" : category}</span>
-                </button>
-              ))}
-            </div>
-          </nav>
-
-          <div className="mt-6 space-y-6">
-            {skillsData[activeTab].map((skill) => (
-              <div key={skill.name} className="flex flex-col gap-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-primary">{categoryIcons[activeTab]}</span>
-                  <span className="font-medium">{skill.name}</span>
+                  <SkillCard category={category} skills={skillsData[category]} />
                 </div>
-                <div className="w-full h-2 rounded-full bg-secondary">
-                  <div
-                    className="h-full rounded-full bg-primary transition-all"
-                    style={{ width: `${skill.level}%` }}
-                    aria-label={`${skill.name} proficiency`}
-                  />
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
+        </div>
+        <div className="flex justify-center items-center mt-8 gap-4">
+          <Button variant="outline" size="icon" onClick={handlePrev} aria-label="Previous skill category">
+            <ChevronLeft className="h-6 w-6" />
+          </Button>
+          <div className="flex gap-2">
+             {categories.map((_, index) => (
+                <button 
+                  key={index} 
+                  onClick={() => setActiveIndex(index)}
+                  className={cn("w-2.5 h-2.5 rounded-full transition-all duration-300", 
+                    activeIndex === index ? 'bg-primary scale-125' : 'bg-secondary'
+                  )}
+                  aria-label={`Go to category ${index + 1}`}
+                />
+              ))}
+          </div>
+          <Button variant="outline" size="icon" onClick={handleNext} aria-label="Next skill category">
+            <ChevronRight className="h-6 w-6" />
+          </Button>
         </div>
       </div>
     </section>
