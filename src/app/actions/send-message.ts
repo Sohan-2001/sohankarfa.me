@@ -1,8 +1,6 @@
 "use server";
 
 import { z } from 'zod';
-import { Resend } from 'resend';
-import { ContactEmailTemplate } from '@/components/contact-email-template';
 
 const schema = z.object({
   name: z.string({ required_error: 'Name is required.' }).min(2, { message: 'Name must be at least 2 characters.' }),
@@ -19,8 +17,6 @@ export type FormState = {
   };
 };
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function sendMessage(prevState: FormState, formData: FormData): Promise<FormState> {
   const validatedFields = schema.safeParse({
     name: formData.get('name'),
@@ -36,25 +32,33 @@ export async function sendMessage(prevState: FormState, formData: FormData): Pro
   }
 
   const { name, email, message } = validatedFields.data;
+  const recipientEmail = 'sohan.karfa@gmail.com';
+  const emailBody = `You received a new message from ${name} (${email}):\n\n${message}`;
 
   try {
-    const { data, error } = await resend.emails.send({
-        from: 'Acme <onboarding@resend.dev>',
-        to: 'sohan.karfa@gmail.com',
-        subject: `New message from ${name} via portfolio`,
-        reply_to: email,
-        react: ContactEmailTemplate({ name, email, message })
+    const response = await fetch('https://sarma.pythonanywhere.com/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: recipientEmail,
+        message: emailBody,
+        sender_email: email, // Passing user's email as sender
+      }),
     });
 
-    if (error) {
-        console.error('Resend API error:', error);
-        return {
-            message: 'Failed to send email. Please try again later.',
-            errors: {},
-        };
-    }
+    const result = await response.json();
 
-    return { message: 'Your message has been sent successfully!' };
+    if (result.success === 1) {
+      return { message: 'Your message has been sent successfully!' };
+    } else {
+      console.error('API Error:', result.error);
+      return { 
+        message: `Failed to send email: ${result.error || 'Unknown error'}`,
+        errors: {}
+      };
+    }
   } catch (error) {
     console.error('Failed to send email:', error);
     return { 
