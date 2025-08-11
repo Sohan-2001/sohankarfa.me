@@ -37,9 +37,9 @@ const skillsData = {
 };
 
 const SkillCategory = ({ skills }: { skills: { name: string; level: number; icon: React.ReactNode }[] }) => (
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
     {skills.map((skill) => (
-      <div key={skill.name} className="space-y-2">
+      <div key={skill.name} className="flex flex-col space-y-2">
         <div className="flex items-center gap-2">
           <span className="text-primary">{skill.icon}</span>
           <p className="font-medium">{skill.name}</p>
@@ -58,7 +58,7 @@ export function SkillsSection() {
         <Card className="max-w-4xl mx-auto shadow-md dark:shadow-lg">
           <CardContent className="p-6">
             <Tabs defaultValue="frontend">
-              <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 mb-6">
+              <TabsList className="flex flex-wrap h-auto sm:grid sm:w-full sm:grid-cols-2 lg:grid-cols-5 mb-6">
                 <TabsTrigger value="frontend">Frontend</TabsTrigger>
                 <TabsTrigger value="backend">Backend</TabsTrigger>
                 <TabsTrigger value="databases">Databases</TabsTrigger>
