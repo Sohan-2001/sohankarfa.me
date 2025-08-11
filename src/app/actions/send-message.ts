@@ -1,6 +1,8 @@
 "use server";
 
 import { z } from 'zod';
+import { Resend } from 'resend';
+import { ContactEmailTemplate } from '@/components/contact-email-template';
 
 const schema = z.object({
   name: z.string({ required_error: 'Name is required.' }).min(2, { message: 'Name must be at least 2 characters.' }),
@@ -17,6 +19,8 @@ export type FormState = {
   };
 };
 
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 export async function sendMessage(prevState: FormState, formData: FormData): Promise<FormState> {
   const validatedFields = schema.safeParse({
     name: formData.get('name'),
@@ -31,10 +35,31 @@ export async function sendMessage(prevState: FormState, formData: FormData): Pro
     };
   }
 
-  // Here you would typically send an email or save to a database.
-  // For demonstration, we'll just log the data to the console.
-  console.log('New message received:');
-  console.log(validatedFields.data);
+  const { name, email, message } = validatedFields.data;
 
-  return { message: 'Your message has been sent successfully!' };
+  try {
+    const { data, error } = await resend.emails.send({
+        from: 'Portfolio Contact Form <onboarding@resend.dev>',
+        to: 'sohan.karfa@example.com',
+        subject: `New message from ${name} via portfolio`,
+        reply_to: email,
+        react: ContactEmailTemplate({ name, email, message })
+    });
+
+    if (error) {
+        console.error('Resend API error:', error);
+        return {
+            message: 'Failed to send email. Please try again later.',
+            errors: {},
+        };
+    }
+
+    return { message: 'Your message has been sent successfully!' };
+  } catch (error) {
+    console.error('Failed to send email:', error);
+    return { 
+      message: 'An unexpected error occurred. Please try again later.',
+      errors: {}
+    };
+  }
 }
