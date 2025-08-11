@@ -3,7 +3,7 @@ import { Download } from "lucide-react"
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 md:py-24">
+    <section id="about" className="py-20 md:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center space-y-6">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">About Me</h2>

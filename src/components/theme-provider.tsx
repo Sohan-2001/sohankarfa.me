@@ -1,65 +1,62 @@
 "use client"
 
 import * as React from "react"
+import { ThemeProvider as NextThemesProvider } from "next-themes"
+import { type ThemeProviderProps } from "next-themes/dist/types"
 
-type Theme = "dark" | "light"
-
-type ThemeProviderProps = {
-  children: React.ReactNode
-  defaultTheme?: Theme
-  storageKey?: string
+export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
 }
 
-type ThemeProviderState = {
-  theme: Theme
-  setTheme: (theme: Theme) => void
-}
-
-const initialState: ThemeProviderState = {
-  theme: "light",
-  setTheme: () => null,
-}
-
-const ThemeProviderContext = React.createContext<ThemeProviderState>(initialState)
-
-export function ThemeProvider({
-  children,
-  defaultTheme = "light",
-  storageKey = "devcard-theme",
-}: ThemeProviderProps) {
-  const [theme, setTheme] = React.useState<Theme>(defaultTheme);
-
-  React.useEffect(() => {
-    const storedTheme = localStorage.getItem(storageKey) as Theme | null;
-    if (storedTheme) {
-      setTheme(storedTheme);
-    }
-  }, [storageKey]);
-
-  React.useEffect(() => {
-    document.documentElement.classList.remove("light", "dark");
-    document.documentElement.classList.add(theme);
-  }, [theme]);
-
-  const value = {
-    theme,
-    setTheme: (newTheme: Theme) => {
-      localStorage.setItem(storageKey, newTheme);
-      setTheme(newTheme);
-    },
-  };
-
-  return (
-    <ThemeProviderContext.Provider value={value}>
-      {children}
-    </ThemeProviderContext.Provider>
-  );
-}
-
+// This is a custom hook to use the theme from next-themes
+// We are not using the one from the library directly to avoid issues with 'use client'
+// and to keep it consistent with the rest of the app.
 export const useTheme = () => {
-  const context = React.useContext(ThemeProviderContext)
-  if (context === undefined) {
-    throw new Error("useTheme must be used within a ThemeProvider")
-  }
-  return context
+    const [theme, setTheme] = React.useState<"light" | "dark" | "system">("system");
+    const [mounted, setMounted] = React.useState(false);
+
+    React.useEffect(() => {
+        setMounted(true);
+        const storedTheme = localStorage.getItem("theme") as "light" | "dark" | "system" | null;
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (storedTheme) {
+            setTheme(storedTheme);
+        } else if (prefersDark) {
+            setTheme("dark");
+        } else {
+            setTheme("light");
+        }
+    }, []);
+
+    const handleSetTheme = (newTheme: "light" | "dark" | "system") => {
+        localStorage.setItem("theme", newTheme);
+        setTheme(newTheme);
+        if (newTheme === 'system') {
+          const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          document.documentElement.classList.remove('light', 'dark');
+          document.documentElement.classList.add(systemTheme);
+        } else {
+          document.documentElement.classList.remove('light', 'dark');
+          document.documentElement.classList.add(newTheme);
+        }
+    }
+
+    React.useEffect(() => {
+        if (mounted) {
+            if (theme === 'system') {
+                const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                document.documentElement.classList.remove('light', 'dark');
+                document.documentElement.classList.add(systemTheme);
+            } else {
+                document.documentElement.classList.remove('light', 'dark');
+                document.documentElement.classList.add(theme);
+            }
+        }
+    }, [theme, mounted]);
+
+
+    return {
+        theme: mounted ? theme : "light",
+        setTheme: handleSetTheme,
+    }
 }

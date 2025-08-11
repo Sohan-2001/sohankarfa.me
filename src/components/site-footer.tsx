@@ -3,7 +3,7 @@ import { Code, Github, Linkedin, Twitter } from "lucide-react"
 
 export function SiteFooter() {
   return (
-    <footer className="border-t bg-secondary/50">
+    <footer className="border-t bg-secondary">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center space-x-2">

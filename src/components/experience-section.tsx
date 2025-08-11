@@ -25,7 +25,7 @@ const educationData = [
 const TimelineItem = ({ data }: { data: { date: string; title: string; company?: string; institution?: string; description: string } }) => (
   <div className="relative pl-8 sm:pl-12 py-4 group">
     <div className="flex items-center mb-1">
-      <div className="absolute left-0 sm:left-4 z-10 w-4 h-4 bg-primary rounded-full group-hover:bg-secondary transition-colors duration-300"></div>
+      <div className="absolute left-0 sm:left-4 z-10 w-4 h-4 bg-primary rounded-full group-hover:bg-primary/80 transition-colors duration-300"></div>
       <h3 className="text-lg font-semibold">{data.title}</h3>
     </div>
     <p className="text-sm text-muted-foreground">{data.date} - {data.company || data.institution}</p>
@@ -35,7 +35,7 @@ const TimelineItem = ({ data }: { data: { date: string; title: string; company?:
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="py-20 md:py-24 bg-secondary/50">
+    <section id="experience" className="py-20 md:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-center mb-12">Experience &amp; Education</h2>
         <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-12">

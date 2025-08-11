@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Code, Server, Database, Cog, Star } from "lucide-react"
 
@@ -41,7 +41,7 @@ const SkillCategory = ({ skills }: { skills: { name: string; level: number; icon
     {skills.map((skill) => (
       <div key={skill.name} className="space-y-2">
         <div className="flex items-center gap-2">
-          {skill.icon}
+          <span className="text-primary">{skill.icon}</span>
           <p className="font-medium">{skill.name}</p>
         </div>
         <Progress value={skill.level} aria-label={`${skill.name} skill level`} />
@@ -52,10 +52,10 @@ const SkillCategory = ({ skills }: { skills: { name: string; level: number; icon
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-20 md:py-24 bg-secondary/50">
+    <section id="skills" className="py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-center mb-12">My Tech Stack</h2>
-        <Card className="max-w-4xl mx-auto">
+        <Card className="max-w-4xl mx-auto shadow-md dark:shadow-lg">
           <CardContent className="p-6">
             <Tabs defaultValue="frontend">
               <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 mb-6">
