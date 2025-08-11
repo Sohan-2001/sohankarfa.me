@@ -22,7 +22,7 @@ export function SiteFooter() {
             <Link href="https://github.com/sohan-2001" target="_blank" aria-label="GitHub" className="text-muted-foreground hover:text-primary">
               <Github className="h-5 w-5" />
             </Link>
-            <Link href="https://linkedin.com" target="_blank" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary">
+            <Link href="https://www.linkedin.com/in/sohan-karfa-72819521b/" target="_blank" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary">
               <Linkedin className="h-5 w-5" />
             </Link>
             <Link href="https://twitter.com" target="_blank" aria-label="Twitter" className="text-muted-foreground hover:text-primary">

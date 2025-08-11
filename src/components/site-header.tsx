@@ -42,7 +42,7 @@ export function SiteHeader() {
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <Link href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <Link href="https://www.linkedin.com/in/sohan-karfa-72819521b/" target="_blank" aria-label="LinkedIn">
               <Linkedin className="h-5 w-5" />
             </Link>
           </Button>
