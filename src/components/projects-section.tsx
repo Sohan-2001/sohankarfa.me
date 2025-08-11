@@ -8,14 +8,7 @@ import { Github, ExternalLink } from "lucide-react"
 const projects = [
   {
     title: "AssesMint – AI-Powered Exam Platform",
-    description: `
-      <ul class="list-disc list-inside space-y-2 text-sm text-muted-foreground">
-        <li>Built a full-stack exam system using Next.js, TypeScript, PostgreSQL, and Flask API for secure email-based authentication via OTP.</li>
-        <li>Enabled exam creation with MCQs, essay, and custom questions, with targeted access through email filtering.</li>
-        <li>Integrated Genkit AI for syllabus-based question generation, reducing exam setup effort by 50%.</li>
-        <li>Implemented auto-evaluation to cut grading time by 95%, and enforced exam integrity with fullscreen lock, copy-paste restrictions, and Jitsi proctoring.</li>
-      </ul>
-    `,
+    description: "An AI-powered assessment platform designed to streamline exam creation and administration. AssesMint empowers educators to create secure, customized exams with various question types and automatically evaluates submissions, drastically reducing grading time. Featuring Genkit AI for intelligent question generation and robust proctoring tools to ensure exam integrity.",
     image: "https://assessmint-seven.vercel.app/_next/image?url=https%3A%2F%2Fsw0u7owaczjz29lf.public.blob.vercel-storage.com%2FGemini_Generated_Image_k1wslck1wslck1ws.png&w=1920&q=75",
     imageHint: "AI exam platform",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Genkit AI", "Flask"],
@@ -24,7 +17,7 @@ const projects = [
   },
   {
     title: "Project Management Tool",
-    description: "A collaborative tool to help teams manage tasks, track progress, and meet deadlines. Features real-time updates with websockets.",
+    description: "A collaborative platform designed to supercharge team productivity. Empower your team to manage tasks, track progress in real-time, and consistently meet deadlines with a suite of intuitive project management features.",
     image: "https://placehold.co/600x400.png",
     imageHint: "dashboard project management",
     stack: ["React", "Node.js", "Socket.IO", "MongoDB"],
@@ -32,8 +25,8 @@ const projects = [
     repoUrl: "https://github.com/sohan-2001",
   },
   {
-    title: "Personal Blog",
-    description: "A modern, fast, and SEO-friendly blog platform built with a headless CMS for easy content management and static site generation for speed.",
+    title: "Headless CMS Blog",
+    description: "A modern, high-performance blog platform engineered for exceptional speed and SEO. By leveraging a headless CMS, it offers a seamless content management experience while delivering a lightning-fast static front-end.",
     image: "https://placehold.co/600x400.png",
     imageHint: "blog website",
     stack: ["Next.js", "Tailwind CSS", "GraphQL", "Contentful"],
@@ -41,8 +34,8 @@ const projects = [
     repoUrl: "https://github.com/sohan-2001",
   },
   {
-    title: "Data Visualization Dashboard",
-    description: "An interactive dashboard for visualizing complex datasets, allowing users to filter, sort, and export data in various formats.",
+    title: "Interactive Data Dashboard",
+    description: "An advanced data visualization dashboard that transforms complex datasets into actionable insights. It provides powerful filtering, sorting, and exporting capabilities to empower data-driven decision-making.",
     image: "https://placehold.co/600x400.png",
     imageHint: "data dashboard charts",
     stack: ["React", "D3.js", "Python", "Flask"],
@@ -71,7 +64,7 @@ export function ProjectsSection() {
                 <CardTitle className="pt-4">{project.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <div dangerouslySetInnerHTML={{ __html: project.description }} />
+                <p className="text-sm text-muted-foreground">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mt-4">
                   {project.stack.map((tech) => (
                     <Badge key={tech} variant="secondary">{tech}</Badge>
