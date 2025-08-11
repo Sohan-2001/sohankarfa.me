@@ -34,13 +34,13 @@ const projects = [
     repoUrl: "https://github.com/Sohan-2001/TruthSleuth",
   },
   {
-    title: "Interactive Data Dashboard",
-    description: "An advanced data visualization dashboard that transforms complex datasets into actionable insights. It provides powerful filtering, sorting, and exporting capabilities to empower data-driven decision-making.",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "data dashboard charts",
-    stack: ["React", "D3.js", "Python", "Flask"],
-    demoUrl: "#",
-    repoUrl: "https://github.com/sohan-2001",
+    title: "WhisperWire - Safe Chat Application",
+    description: "WhisperWire is an enterprise-grade secure chat application designed to foster safe and productive conversations. It leverages real-time AI moderation to proactively filter toxic language, ensuring a respectful communication environment. With a scalable architecture built on Firebase and a responsive UI, it's the ideal solution for teams and individuals who prioritize professional and secure collaboration.",
+    image: "https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/Gemini_Generated_Image_630r5d630r5d630r.png",
+    imageHint: "secure chat application",
+    stack: ["Next.js", "Firebase", "Genkit AI", "Tailwind CSS"],
+    demoUrl: "https://whisper-wire-eight.vercel.app/",
+    repoUrl: "https://github.com/Sohan-2001/WhisperWire",
   },
 ]
 
