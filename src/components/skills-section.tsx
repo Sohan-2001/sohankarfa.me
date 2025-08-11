@@ -129,7 +129,27 @@ export function SkillsSection() {
   return (
     <section id="skills" className="py-20 md:py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-center mb-16">My Tech Stack</h2>
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-center mb-8">My Tech Stack</h2>
+        <div className="flex justify-center items-center mb-8 gap-4">
+          <Button variant="outline" size="icon" onClick={handlePrev} aria-label="Previous skill category">
+            <ChevronLeft className="h-6 w-6" />
+          </Button>
+          <div className="flex gap-2">
+             {categories.map((_, index) => (
+                <button 
+                  key={index} 
+                  onClick={() => setActiveIndex(index)}
+                  className={cn("w-2.5 h-2.5 rounded-full transition-all duration-300", 
+                    activeIndex === index ? 'bg-primary scale-125' : 'bg-secondary'
+                  )}
+                  aria-label={`Go to category ${index + 1}`}
+                />
+              ))}
+          </div>
+          <Button variant="outline" size="icon" onClick={handleNext} aria-label="Next skill category">
+            <ChevronRight className="h-6 w-6" />
+          </Button>
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative h-96 w-full flex items-center justify-center" style={{ perspective: '1000px' }}>
             <div
@@ -164,26 +184,6 @@ export function SkillsSection() {
           <div className="w-full max-w-md mx-auto hidden lg:block">
             <UsageDetails category={activeCategory} isVisible={true} />
           </div>
-        </div>
-        <div className="flex justify-center items-center mt-8 gap-4">
-          <Button variant="outline" size="icon" onClick={handlePrev} aria-label="Previous skill category">
-            <ChevronLeft className="h-6 w-6" />
-          </Button>
-          <div className="flex gap-2">
-             {categories.map((_, index) => (
-                <button 
-                  key={index} 
-                  onClick={() => setActiveIndex(index)}
-                  className={cn("w-2.5 h-2.5 rounded-full transition-all duration-300", 
-                    activeIndex === index ? 'bg-primary scale-125' : 'bg-secondary'
-                  )}
-                  aria-label={`Go to category ${index + 1}`}
-                />
-              ))}
-          </div>
-          <Button variant="outline" size="icon" onClick={handleNext} aria-label="Next skill category">
-            <ChevronRight className="h-6 w-6" />
-          </Button>
         </div>
       </div>
     </section>
