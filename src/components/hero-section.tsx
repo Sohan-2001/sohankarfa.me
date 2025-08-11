@@ -10,8 +10,8 @@ export function HeroSection() {
       <CircuitBackground />
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-6xl">
-            <div className="flex flex-col items-center justify-center text-center md:flex-row md:justify-between md:gap-12 lg:gap-16 xl:gap-20">
-              <div className="flex animate-fade-up flex-col items-center gap-4 text-center md:items-start md:text-left">
+            <div className="flex flex-col items-center justify-between gap-12 text-center md:flex-row md:gap-16 lg:gap-20 xl:gap-24">
+              <div className="flex animate-fade-up flex-col items-center gap-4 text-center md:items-start md:text-left bg-background/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl shadow-lg">
                 <h1 className="max-w-2xl text-4xl font-bold tracking-tighter text-foreground sm:text-5xl md:text-6xl xl:text-7xl">
                   Sohan Karfa
                 </h1>
