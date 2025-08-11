@@ -39,7 +39,7 @@ export async function sendMessage(prevState: FormState, formData: FormData): Pro
 
   try {
     const { data, error } = await resend.emails.send({
-        from: 'Portfolio Contact Form <onboarding@resend.dev>',
+        from: 'Acme <onboarding@resend.dev>',
         to: 'sohan.karfa@gmail.com',
         subject: `New message from ${name} via portfolio`,
         reply_to: email,
