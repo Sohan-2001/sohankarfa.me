@@ -23,9 +23,9 @@ export function ContactSection() {
               <div className="bg-secondary text-secondary-foreground p-8 rounded-r-lg flex flex-col justify-center">
                 <h3 className="text-xl font-semibold mb-4 text-foreground dark:text-secondary-foreground">Contact Information</h3>
                 <div className="space-y-4">
-                  <a href="mailto:sohan.karfa@example.com" className="flex items-center gap-3 hover:text-primary transition-colors">
+                  <a href="mailto:sohan.karfa@gmail.com" className="flex items-center gap-3 hover:text-primary transition-colors">
                     <Mail className="h-5 w-5" />
-                    <span>sohan.karfa@example.com</span>
+                    <span>sohan.karfa@gmail.com</span>
                   </a>
                   <div className="flex space-x-4 mt-6">
                     <Button variant="outline" size="icon" className="bg-transparent dark:border-secondary-foreground/50 hover:bg-secondary-foreground/10" asChild>
