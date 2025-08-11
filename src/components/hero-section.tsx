@@ -19,9 +19,6 @@ export function HeroSection() {
             <p className="text-lg sm:text-xl md:text-2xl font-medium text-primary">
               Full-Stack Software Developer
             </p>
-            <p className="max-w-md text-muted-foreground">
-              I build elegant, responsive, and scalable web applications.
-            </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
                 <Link href="#projects">
