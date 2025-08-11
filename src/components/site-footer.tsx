@@ -8,7 +8,7 @@ export function SiteFooter() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center space-x-2">
             <Code className="h-6 w-6 text-primary" />
-            <span className="font-bold">DevCard</span>
+            <span className="font-bold">Me</span>
           </div>
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Sohan Karfa. All rights reserved.

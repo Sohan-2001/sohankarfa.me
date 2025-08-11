@@ -25,7 +25,7 @@ export function SiteHeader() {
         <div className="mr-4 flex items-center">
           <Link href="/" className="flex items-center space-x-2">
             <Code className="h-6 w-6 text-primary" />
-            <span className="font-bold">DevCard</span>
+            <span className="font-bold">Me</span>
           </Link>
         </div>
         <nav className="hidden flex-1 items-center space-x-4 lg:flex">

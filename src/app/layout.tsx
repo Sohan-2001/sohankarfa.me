@@ -12,7 +12,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'DevCard | Full-Stack Developer',
+  title: 'Me | Full-Stack Developer',
   description: 'A clean, modern, and responsive portfolio website for a Full-Stack Software Developer.',
 };
 
