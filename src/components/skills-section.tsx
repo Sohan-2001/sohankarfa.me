@@ -7,34 +7,34 @@ import { Button } from "@/components/ui/button"
 
 const skillsData = {
   frontend: [
-    { name: "React / Next.js", level: 95, usage: { web: 80, mobile: 15, desktop: 5 } },
-    { name: "JavaScript / TypeScript", level: 90, usage: { web: 70, backend: 25, scripting: 5 } },
-    { name: "HTML5 & CSS3", level: 95, usage: { web: 98, email: 2 } },
-    { name: "Tailwind CSS", level: 85, usage: { web: 100 } },
+    { name: "React / Next.js", level: 95, description: "Building dynamic, high-performance web applications." },
+    { name: "JavaScript / TypeScript", level: 90, description: "Core of my web projects, for both client and server-side logic." },
+    { name: "HTML5 & CSS3", level: 95, description: "Fundamental for all web development and email templates." },
+    { name: "Tailwind CSS", level: 85, description: "My go-to for rapidly building modern, responsive UIs." },
   ],
   backend: [
-    { name: "Node.js / Express", level: 90, usage: { api: 70, microservices: 30 } },
-    { name: "Python / Django", level: 75, usage: { data: 60, web: 40 } },
-    { name: "REST & GraphQL APIs", level: 85, usage: { rest: 65, graphql: 35 } },
-    { name: "Authentication (JWT)", level: 80, usage: { web: 90, mobile: 10 } },
+    { name: "Node.js / Express", level: 90, description: "Creating RESTful APIs and scalable microservices." },
+    { name: "Python / Django", level: 75, description: "Used for data-driven backends and web applications." },
+    { name: "REST & GraphQL APIs", level: 85, description: "Designing and consuming both REST and GraphQL APIs." },
+    { name: "Authentication (JWT)", level: 80, description: "Implementing secure authentication for web and mobile." },
   ],
   databases: [
-    { name: "PostgreSQL", level: 85, usage: { relational: 100 } },
-    { name: "MongoDB", level: 80, usage: { nosql: 100 } },
-    { name: "Firebase", level: 70, usage: { realtime: 60, auth: 40 } },
-    { name: "SQL & NoSQL", level: 85, usage: { sql: 50, nosql: 50 } },
+    { name: "PostgreSQL", level: 85, description: "My primary choice for relational database management." },
+    { name: "MongoDB", level: 80, description: "Expertise in NoSQL databases for flexible data models." },
+    { name: "Firebase", level: 70, description: "Leveraging for real-time data and authentication services." },
+    { name: "SQL & NoSQL", level: 85, description: "Proficient in both relational and non-relational database design." },
   ],
   tools: [
-    { name: "Git & GitHub", level: 95, usage: { versionControl: 100 } },
-    { name: "Docker", level: 80, usage: { containerization: 80, deployment: 20 } },
-    { name: "Vercel / Netlify", level: 90, usage: { frontend: 100 } },
-    { name: "CI/CD Pipelines", level: 75, usage: { githubActions: 70, jenkins: 30 } },
+    { name: "Git & GitHub", level: 95, description: "Essential for version control and collaborative development." },
+    { name: "Docker", level: 80, description: "Containerizing applications for consistent deployments." },
+    { name: "Vercel / Netlify", level: 90, description: "Deploying and managing modern frontend applications." },
+    { name: "CI/CD Pipelines", level: 75, description: "Automating build, test, and deployment workflows." },
   ],
   others: [
-    { name: "Agile Methodologies", level: 90, usage: { scrum: 80, kanban: 20 } },
-    { name: "UI/UX Principles", level: 80, usage: { design: 70, research: 30 } },
-    { name: "Problem Solving", level: 95, usage: { algorithms: 60, architecture: 40 } },
-    { name: "Communication", level: 95, usage: { team: 80, client: 20 } },
+    { name: "Agile Methodologies", level: 90, description: "Working in Scrum and Kanban environments for efficient delivery." },
+    { name: "UI/UX Principles", level: 80, description: "Applying user-centric design and research principles." },
+    { name: "Problem Solving", level: 95, description: "Expertise in algorithms and system architecture design." },
+    { name: "Communication", level: 95, description: "Collaborating effectively with team members and clients." },
   ],
 }
 
@@ -47,14 +47,6 @@ const categoryIcons: { [key: string]: React.ElementType } = {
 }
 
 type Category = keyof typeof skillsData
-
-const usageDescriptions: { [key in Category]: string } = {
-  frontend: "Specializing in building responsive, high-performance web applications with a focus on modern frameworks and clean UI/UX.",
-  backend: "Expert in creating robust and scalable server-side logic, APIs, and microservices to power complex applications.",
-  databases: "Proficient in designing and managing both SQL and NoSQL databases to ensure data integrity, performance, and scalability.",
-  tools: "Utilizing a modern DevOps toolchain for efficient version control, containerization, and automated CI/CD pipelines.",
-  others: "Applying strong problem-solving, UI/UX principles, and agile methodologies to deliver high-quality, user-centric products.",
-}
 
 const SkillCard = ({ category, skills }: { category: Category; skills: (typeof skillsData)[Category] }) => {
   const Icon = categoryIcons[category]
@@ -84,7 +76,7 @@ const SkillCard = ({ category, skills }: { category: Category; skills: (typeof s
 }
 
 const UsageDetails = ({ category, isVisible }: { category: Category, isVisible: boolean }) => {
-  const description = usageDescriptions[category]
+  const skills = skillsData[category];
   const title = category === "tools" ? "Tools & DevOps" : category.charAt(0).toUpperCase() + category.slice(1);
 
   return (
@@ -92,8 +84,15 @@ const UsageDetails = ({ category, isVisible }: { category: Category, isVisible: 
       "bg-card text-card-foreground rounded-xl shadow-md p-6 w-full max-w-md transition-all duration-500",
       isVisible ? 'animate-fade-up' : 'opacity-0'
     )}>
-      <h3 className="text-2xl font-bold mb-4 flex items-center gap-2"><Info className="h-6 w-6 text-primary" /> About {title}</h3>
-      <p className="text-muted-foreground leading-relaxed">{description}</p>
+      <h3 className="text-2xl font-bold mb-4 flex items-center gap-2"><Info className="h-6 w-6 text-primary" /> {title} Usage</h3>
+      <ul className="space-y-3 text-muted-foreground">
+        {skills.map(skill => (
+          <li key={skill.name} className="flex gap-2">
+            <span className="font-semibold text-foreground">{skill.name}:</span>
+            <span>{skill.description}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
