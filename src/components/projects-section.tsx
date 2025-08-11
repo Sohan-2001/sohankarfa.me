@@ -8,14 +8,7 @@ import { Github, ExternalLink } from "lucide-react"
 const projects = [
   {
     title: "AssesMint – AI-Powered Exam Platform",
-    description: `
-      <ul class="list-disc list-inside space-y-2 text-sm text-muted-foreground">
-        <li>Built a full-stack exam system using Next.js, TypeScript, PostgreSQL, and Flask API for secure email-based authentication via OTP.</li>
-        <li>Enabled exam creation with MCQs, essay, and custom questions, with targeted access through email filtering.</li>
-        <li>Integrated Genkit AI for syllabus-based question generation, reducing exam setup effort by 50%.</li>
-        <li>Implemented auto-evaluation to cut grading time by 95%, and enforced exam integrity with fullscreen lock, copy-paste restrictions, and Jitsi proctoring.</li>
-      </ul>
-    `,
+    description: "An intelligent exam platform designed to streamline assessments with AI-driven question generation and automated grading. AssesMint enhances exam security with advanced proctoring features while providing a seamless experience for both educators and students.",
     image: "https://assessmint-seven.vercel.app/_next/image?url=https%3A%2F%2Fsw0u7owaczjz29lf.public.blob.vercel-storage.com%2FGemini_Generated_Image_k1wslck1wslck1ws.png&w=1920&q=75",
     imageHint: "AI exam platform",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Genkit AI", "Flask"],
@@ -24,14 +17,7 @@ const projects = [
   },
   {
     title: "Email Sending API – FastAPI-based Email Service",
-    description: `
-      <ul class="list-disc list-inside space-y-2 text-sm text-muted-foreground">
-        <li>Developed a RESTful API using FastAPI to send emails with subject, body, recipients, and attachment support.</li>
-        <li>Integrated SMTP protocol and environment variable-based configuration, improving credential security by 80% compared to hardcoded setups.</li>
-        <li>Applied Pydantic validation to ensure safe input handling and prevent malformed requests.</li>
-        <li>Enabled modular and secure backend deployment using Uvicorn, with a clear setup for quick configuration.</li>
-      </ul>
-    `,
+    description: "A robust and secure email sending API built with FastAPI, designed for easy integration into any application. It provides a scalable solution for handling transactional emails, complete with attachment support and secure credential management.",
     image: "https://placehold.co/600x400.png",
     imageHint: "API code",
     stack: ["FastAPI", "Python", "Pydantic", "Uvicorn"],
