@@ -32,8 +32,14 @@ export async function sendMessage(prevState: FormState, formData: FormData): Pro
   }
 
   const { name, email, message } = validatedFields.data;
-  const recipientEmail = 'sohan.karfa@gmail.com';
-  const emailBody = `You received a new message from ${name} (${email}):\n\n${message}`;
+  
+  // The Flask API will receive this data and is responsible for sending the email.
+  const emailPayload = {
+    name: name,
+    email: email, // The sender's email from the form
+    message: message,
+    recipient_email: 'sohan.karfa@gmail.com' // The fixed recipient
+  };
 
   try {
     const response = await fetch('https://sarma.pythonanywhere.com/', {
@@ -41,26 +47,22 @@ export async function sendMessage(prevState: FormState, formData: FormData): Pro
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        email: recipientEmail,
-        message: emailBody,
-        sender_email: email, // Passing user's email as sender
-      }),
+      body: JSON.stringify(emailPayload),
     });
 
     const result = await response.json();
 
-    if (result.success === 1) {
+    if (response.ok && result.success === 1) {
       return { message: 'Your message has been sent successfully!' };
     } else {
-      console.error('API Error:', result.error);
+      console.error('API Error Response:', result);
       return { 
-        message: `Failed to send email: ${result.error || 'Unknown error'}`,
+        message: `Failed to send email: ${result.error || 'Unknown error from API'}`,
         errors: {}
       };
     }
   } catch (error) {
-    console.error('Failed to send email:', error);
+    console.error('Fetch API Error:', error);
     return { 
       message: 'An unexpected error occurred. Please try again later.',
       errors: {}
