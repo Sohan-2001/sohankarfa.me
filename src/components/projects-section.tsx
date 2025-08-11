@@ -8,7 +8,14 @@ import { Github, ExternalLink } from "lucide-react"
 const projects = [
   {
     title: "AssesMint – AI-Powered Exam Platform",
-    description: "An AI-powered assessment platform designed to streamline exam creation and administration. AssesMint empowers educators to create secure, customized exams with various question types and automatically evaluates submissions, drastically reducing grading time. Featuring Genkit AI for intelligent question generation and robust proctoring tools to ensure exam integrity.",
+    description: `
+      <ul class="list-disc list-inside space-y-2 text-sm text-muted-foreground">
+        <li>Built a full-stack exam system using Next.js, TypeScript, PostgreSQL, and Flask API for secure email-based authentication via OTP.</li>
+        <li>Enabled exam creation with MCQs, essay, and custom questions, with targeted access through email filtering.</li>
+        <li>Integrated Genkit AI for syllabus-based question generation, reducing exam setup effort by 50%.</li>
+        <li>Implemented auto-evaluation to cut grading time by 95%, and enforced exam integrity with fullscreen lock, copy-paste restrictions, and Jitsi proctoring.</li>
+      </ul>
+    `,
     image: "https://assessmint-seven.vercel.app/_next/image?url=https%3A%2F%2Fsw0u7owaczjz29lf.public.blob.vercel-storage.com%2FGemini_Generated_Image_k1wslck1wslck1ws.png&w=1920&q=75",
     imageHint: "AI exam platform",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Genkit AI", "Flask"],
@@ -16,13 +23,20 @@ const projects = [
     repoUrl: "https://github.com/Sohan-2001/assessmint",
   },
   {
-    title: "Project Management Tool",
-    description: "A collaborative platform designed to supercharge team productivity. Empower your team to manage tasks, track progress in real-time, and consistently meet deadlines with a suite of intuitive project management features.",
+    title: "Email Sending API – FastAPI-based Email Service",
+    description: `
+      <ul class="list-disc list-inside space-y-2 text-sm text-muted-foreground">
+        <li>Developed a RESTful API using FastAPI to send emails with subject, body, recipients, and attachment support.</li>
+        <li>Integrated SMTP protocol and environment variable-based configuration, improving credential security by 80% compared to hardcoded setups.</li>
+        <li>Applied Pydantic validation to ensure safe input handling and prevent malformed requests.</li>
+        <li>Enabled modular and secure backend deployment using Uvicorn, with a clear setup for quick configuration.</li>
+      </ul>
+    `,
     image: "https://placehold.co/600x400.png",
-    imageHint: "dashboard project management",
-    stack: ["React", "Node.js", "Socket.IO", "MongoDB"],
-    demoUrl: "#",
-    repoUrl: "https://github.com/sohan-2001",
+    imageHint: "API code",
+    stack: ["FastAPI", "Python", "Pydantic", "Uvicorn"],
+    demoUrl: null,
+    repoUrl: "https://github.com/Sohan-2001/email-send",
   },
   {
     title: "Headless CMS Blog",
@@ -64,7 +78,7 @@ export function ProjectsSection() {
                 <CardTitle className="pt-4">{project.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">{project.description}</p>
+                <div dangerouslySetInnerHTML={{ __html: project.description }} />
                 <div className="flex flex-wrap gap-2 mt-4">
                   {project.stack.map((tech) => (
                     <Badge key={tech} variant="secondary">{tech}</Badge>
@@ -77,11 +91,13 @@ export function ProjectsSection() {
                     <Github className="mr-2 h-4 w-4" /> GitHub
                   </Link>
                 </Button>
-                <Button asChild>
-                  <Link href={project.demoUrl} target="_blank">
-                    <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
-                  </Link>
-                </Button>
+                {project.demoUrl && (
+                  <Button asChild>
+                    <Link href={project.demoUrl} target="_blank">
+                      <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                    </Link>
+                  </Button>
+                )}
               </CardFooter>
             </Card>
           ))}
