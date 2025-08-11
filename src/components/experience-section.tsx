@@ -15,9 +15,9 @@ const experienceData = [
 
 const educationData = [
   {
-    date: "2014 - 2018",
+    date: "2021 - 2025",
     title: "Bachelor of Science in Computer Science",
-    institution: "University of Technology",
+    institution: "Lovely Professional University",
     description: "Graduated with honors. Focused on software development, algorithms, and data structures.",
   },
 ];
