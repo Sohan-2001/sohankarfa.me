@@ -58,15 +58,15 @@ export function SkillsSection() {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-center mb-12">My Tech Stack</h2>
         <div className="max-w-4xl mx-auto p-6 sm:p-8 rounded-xl shadow-md bg-card">
-          <nav>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-2 justify-center">
+          <nav className="mb-8">
+            <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide -mx-6 px-6 md:flex-wrap md:justify-center md:gap-2 md:mx-0 md:px-0 md:overflow-x-visible md:snap-none">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setActiveTab(category)}
                   aria-current={activeTab === category ? "true" : "false"}
                   className={cn(
-                    "px-4 py-2 rounded-full text-sm font-medium transition-colors",
+                    "flex-shrink-0 snap-center px-4 py-2 rounded-full text-sm font-medium transition-colors",
                     activeTab === category
                       ? "bg-primary/20 text-primary font-semibold"
                       : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
