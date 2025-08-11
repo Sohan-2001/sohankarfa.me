@@ -27,6 +27,12 @@ const nextConfig: NextConfig = {
         hostname: 'assessmint-seven.vercel.app',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'scontent.fccu1-2.fna.fbcdn.net',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
