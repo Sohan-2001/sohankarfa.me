@@ -11,7 +11,7 @@ export function HeroSection() {
           <div className="absolute top-[-10rem] right-[-10rem] h-[30rem] w-[30rem] rounded-full bg-primary/5 blur-3xl"></div>
           <div className="absolute bottom-[-15rem] left-[-15rem] h-[30rem] w-[30rem] rounded-full bg-accent/5 blur-3xl"></div>
         </div>
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12 xl:gap-20">
           <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-6 animate-fade-up">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-foreground font-headline">
               Sohan Karfa
