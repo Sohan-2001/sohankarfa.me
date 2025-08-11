@@ -10,7 +10,7 @@ export function HeroSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter dark:text-white font-headline" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.2)' }}>
-              Alex Doe
+              Sohan Karfa
             </h1>
             <p className="text-xl md:text-2xl font-medium text-primary dark:text-[#00B4D8]">
               Full-Stack Software Developer
@@ -30,7 +30,7 @@ export function HeroSection() {
             <div className="p-2 rounded-full bg-white/80 dark:bg-[#F8F9FA]">
               <Image
                 src="https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/PIVduhep_400x400.jpg"
-                alt="Alex Doe Headshot"
+                alt="Sohan Karfa Headshot"
                 width={400}
                 height={400}
                 className="rounded-full shadow-lg"

@@ -11,7 +11,7 @@ export function SiteFooter() {
             <span className="font-bold">DevCard</span>
           </div>
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Alex Doe. All rights reserved.
+            © {new Date().getFullYear()} Sohan Karfa. All rights reserved.
           </p>
           <div className="flex items-center space-x-2">
             <Link href="#about" className="text-sm text-muted-foreground hover:text-primary">About</Link>
