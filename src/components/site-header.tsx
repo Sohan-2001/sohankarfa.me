@@ -6,7 +6,7 @@ import { Code, Github, Linkedin, Twitter, Menu } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription, SheetClose } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetClose, SheetTrigger } from "@/components/ui/sheet"
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -47,7 +47,7 @@ export function SiteHeader() {
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <Link href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <Link href="https://x.com/SohanKarfa" target="_blank" aria-label="Twitter">
               <Twitter className="h-5 w-5" />
             </Link>
           </Button>

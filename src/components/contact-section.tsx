@@ -39,7 +39,7 @@ export function ContactSection() {
                       </Link>
                     </Button>
                     <Button variant="outline" size="icon" className="bg-transparent dark:border-secondary-foreground/50 hover:bg-secondary-foreground/10" asChild>
-                      <Link href="https://twitter.com" target="_blank" aria-label="Twitter">
+                      <Link href="https://x.com/SohanKarfa" target="_blank" aria-label="Twitter">
                         <Twitter className="h-5 w-5" />
                       </Link>
                     </Button>
