@@ -14,21 +14,23 @@ export function HeroSection() {
             <div className="flex flex-col items-center justify-between gap-12 text-center md:flex-row md:gap-16 lg:gap-20 xl:gap-24">
               <div className="flex animate-fade-up flex-col items-center gap-4 text-center md:items-start md:text-left bg-background/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl shadow-lg">
                 <WobbleContainer>
-                  <h1 className="max-w-2xl text-4xl font-bold tracking-tighter text-foreground sm:text-5xl md:text-6xl xl:text-7xl">
-                    Sohan Karfa
-                  </h1>
-                  <p className="max-w-md text-lg text-primary sm:text-xl md:text-2xl">
-                    Full-Stack Software Developer
-                  </p>
-                  <div className="flex flex-col gap-4 sm:flex-row">
-                    <Button asChild size="lg" className="rounded-full">
-                      <Link href="#projects">
-                        View My Work <ArrowRight className="ml-2 h-5 w-5" />
-                      </Link>
-                    </Button>
-                    <Button asChild variant="outline" size="lg" className="rounded-full">
-                      <Link href="#contact">Get in Touch</Link>
-                    </Button>
+                  <div className="space-y-4">
+                    <h1 className="max-w-2xl text-4xl font-bold tracking-tighter text-foreground sm:text-5xl md:text-6xl xl:text-7xl">
+                      Sohan Karfa
+                    </h1>
+                    <p className="max-w-md text-lg text-primary sm:text-xl md:text-2xl">
+                      Full-Stack Software Developer
+                    </p>
+                    <div className="flex flex-col gap-4 sm:flex-row">
+                      <Button asChild size="lg" className="rounded-full">
+                        <Link href="#projects">
+                          View My Work <ArrowRight className="ml-2 h-5 w-5" />
+                        </Link>
+                      </Button>
+                      <Button asChild variant="outline" size="lg" className="rounded-full">
+                        <Link href="#contact">Get in Touch</Link>
+                      </Button>
+                    </div>
                   </div>
                 </WobbleContainer>
               </div>
