@@ -11,7 +11,7 @@ const poppins = Poppins({
   variable: '--font-poppins',
 });
 
-const siteUrl = "https://your-portfolio-url.com"; // Replace with your actual domain
+const siteUrl = "https://sohankarfa.me"; // Replace with your actual domain
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

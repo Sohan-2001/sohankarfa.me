@@ -11,7 +11,7 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Sohan Karfa",
-  "url": "https://your-portfolio-url.com", // Replace with your actual domain
+  "url": "https://sohankarfa.me", // Replace with your actual domain
   "image": "https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/PIVduhep_400x400.jpg",
   "jobTitle": "Full-Stack Software Developer",
   "worksFor": {
