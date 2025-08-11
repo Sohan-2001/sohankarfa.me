@@ -1,16 +1,22 @@
 
 const experienceData = [
   {
-    date: "2021 - Present",
-    title: "Senior Full-Stack Developer",
-    company: "Tech Solutions Inc.",
-    description: "Led development of scalable web applications, mentored junior developers, and implemented new features to improve user experience and system performance.",
+    date: "February 2025 – Present",
+    title: "Software Engineer — Accenture",
+    company: "Position: SAP ABAP Developer",
+    description: "Develop and enhance SAP ABAP programs, reports, and interfaces. Collaborate with functional teams to deliver business process improvements and ensure seamless integration with other systems.",
   },
   {
-    date: "2018 - 2021",
-    title: "Software Engineer",
-    company: "Innovate Co.",
-    description: "Developed and maintained full-stack applications using React and Node.js. Collaborated with cross-functional teams to deliver high-quality software.",
+    date: "June 2025 – Present",
+    title: "Part-Time Full-Stack Web Developer — Truelancer.com",
+    company: "Freelance",
+    description: "Freelance development of scalable web applications using modern frameworks. Handle both frontend and backend tasks, ensuring high performance and user-friendly experiences for various client projects.",
+  },
+  {
+    date: "July 2025 – Present",
+    title: "LLM Evaluator — SOUL Company",
+    company: "AI Model Quality",
+    description: "Evaluate and test large language model outputs for quality, relevance, and accuracy. Provide structured feedback to improve AI model performance.",
   },
 ];
 
