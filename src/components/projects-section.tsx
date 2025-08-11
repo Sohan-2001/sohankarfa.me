@@ -20,7 +20,7 @@ const projects = [
     imageHint: "AI exam platform",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Genkit AI", "Flask"],
     demoUrl: "https://assessmint-seven.vercel.app/",
-    repoUrl: "https://github.com/sohan-2001/AssesMint",
+    repoUrl: "https://github.com/Sohan-2001/assessmint",
   },
   {
     title: "Project Management Tool",
