@@ -29,7 +29,7 @@ export function ContactSection() {
                   </a>
                   <div className="flex space-x-4 mt-6">
                     <Button variant="outline" size="icon" className="bg-transparent dark:border-secondary-foreground/50 hover:bg-secondary-foreground/10" asChild>
-                      <Link href="https://github.com" target="_blank" aria-label="GitHub">
+                      <Link href="https://github.com/sohan-2001" target="_blank" aria-label="GitHub">
                         <Github className="h-5 w-5" />
                       </Link>
                     </Button>

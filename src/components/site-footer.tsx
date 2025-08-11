@@ -19,7 +19,7 @@ export function SiteFooter() {
             <Link href="#contact" className="text-sm text-muted-foreground hover:text-primary">Contact</Link>
           </div>
           <div className="flex space-x-4">
-            <Link href="https://github.com" target="_blank" aria-label="GitHub" className="text-muted-foreground hover:text-primary">
+            <Link href="https://github.com/sohan-2001" target="_blank" aria-label="GitHub" className="text-muted-foreground hover:text-primary">
               <Github className="h-5 w-5" />
             </Link>
             <Link href="https://linkedin.com" target="_blank" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary">

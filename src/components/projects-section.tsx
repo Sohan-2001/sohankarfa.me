@@ -13,7 +13,7 @@ const projects = [
     imageHint: "e-commerce online store",
     stack: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
     demoUrl: "#",
-    repoUrl: "#",
+    repoUrl: "https://github.com/sohan-2001",
   },
   {
     title: "Project Management Tool",
@@ -22,7 +22,7 @@ const projects = [
     imageHint: "dashboard project management",
     stack: ["React", "Node.js", "Socket.IO", "MongoDB"],
     demoUrl: "#",
-    repoUrl: "#",
+    repoUrl: "https://github.com/sohan-2001",
   },
   {
     title: "Personal Blog",
@@ -31,7 +31,7 @@ const projects = [
     imageHint: "blog website",
     stack: ["Next.js", "Tailwind CSS", "GraphQL", "Contentful"],
     demoUrl: "#",
-    repoUrl: "#",
+    repoUrl: "https://github.com/sohan-2001",
   },
   {
     title: "Data Visualization Dashboard",
@@ -40,7 +40,7 @@ const projects = [
     imageHint: "data dashboard charts",
     stack: ["React", "D3.js", "Python", "Flask"],
     demoUrl: "#",
-    repoUrl: "#",
+    repoUrl: "https://github.com/sohan-2001",
   },
 ]
 
