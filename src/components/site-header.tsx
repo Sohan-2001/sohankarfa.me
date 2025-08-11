@@ -1,11 +1,12 @@
 "use client"
 
 import Link from "next/link"
+import * as React from "react"
 import { Code, Github, Linkedin, Twitter, Menu } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription, SheetClose } from "@/components/ui/sheet"
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -16,6 +17,8 @@ const navLinks = [
 ]
 
 export function SiteHeader() {
+  const [isSheetOpen, setIsSheetOpen] = React.useState(false);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
@@ -49,7 +52,7 @@ export function SiteHeader() {
             </Link>
           </Button>
           <ThemeToggle />
-          <Sheet>
+          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="lg:hidden">
                 <Menu className="h-5 w-5" />
@@ -65,9 +68,15 @@ export function SiteHeader() {
               </SheetHeader>
               <div className="flex flex-col pt-8">
                 {navLinks.map((link) => (
-                  <Link key={link.href} href={link.href} className="py-2 text-lg font-medium">
-                    {link.label}
-                  </Link>
+                   <SheetClose asChild key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="py-2 text-lg font-medium"
+                      onClick={() => setIsSheetOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  </SheetClose>
                 ))}
               </div>
             </SheetContent>
