@@ -8,7 +8,7 @@ export function HeroSection() {
     <section id="home" className="py-20 md:py-32 bg-background dark:bg-gradient-to-br from-[#0D1B2A] to-[#1B263B] text-foreground dark:text-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-24">
-          <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 p-2 rounded-full bg-white/80 dark:bg-[#F8F9FA] order-1 md:order-2">
+          <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] p-2 rounded-full bg-white/80 dark:bg-[#F8F9FA] order-1 md:order-2">
             <Image
               src="https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/PIVduhep_400x400.jpg"
               alt="Sohan Karfa Headshot"
