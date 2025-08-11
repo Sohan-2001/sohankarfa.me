@@ -7,8 +7,8 @@ export function HeroSection() {
   return (
     <section id="home" className="py-20 md:py-32 bg-background dark:bg-gradient-to-br from-[#0D1B2A] to-[#1B263B] text-foreground dark:text-white">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 text-center md:text-left">
+        <div className="grid md:grid-cols-5 gap-12 items-center">
+          <div className="md:col-span-3 space-y-6 text-center md:text-left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter dark:text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.2)' }}>
               Alex Doe
             </h1>
@@ -29,7 +29,7 @@ export function HeroSection() {
               </Button>
             </div>
           </div>
-          <div className="flex justify-center">
+          <div className="md:col-span-2 flex justify-center">
             <div className="p-2 rounded-full bg-white/80 dark:bg-[#F8F9FA]">
               <Image
                 src="https://placehold.co/400x400.png"
