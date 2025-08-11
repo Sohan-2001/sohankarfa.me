@@ -18,7 +18,7 @@ const projects = [
   {
     title: "Email Sending API – FastAPI-based Email Service",
     description: "A robust and secure email sending API built with FastAPI, designed for easy integration into any application. It provides a scalable solution for handling transactional emails, complete with attachment support and secure credential management.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/Gemini_Generated_Image_6hatvy6hatvy6hat.png",
     imageHint: "API code",
     stack: ["FastAPI", "Python", "Pydantic", "Uvicorn"],
     demoUrl: null,
