@@ -1,10 +1,9 @@
 "use client"
 
 import * as React from "react"
-import { Code, Server, Database, Cog, Star, ChevronLeft, ChevronRight, BarChart3, LineChart } from "lucide-react"
+import { Code, Server, Database, Cog, Star, ChevronLeft, ChevronRight, Info } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
 const skillsData = {
   frontend: [
@@ -48,9 +47,16 @@ const categoryIcons: { [key: string]: React.ElementType } = {
 }
 
 type Category = keyof typeof skillsData
-type Skill = { name: string; level: number; usage: { [key: string]: number } }
 
-const SkillCard = ({ category, skills }: { category: Category; skills: Skill[] }) => {
+const usageDescriptions: { [key in Category]: string } = {
+  frontend: "Specializing in building responsive, high-performance web applications with a focus on modern frameworks and clean UI/UX.",
+  backend: "Expert in creating robust and scalable server-side logic, APIs, and microservices to power complex applications.",
+  databases: "Proficient in designing and managing both SQL and NoSQL databases to ensure data integrity, performance, and scalability.",
+  tools: "Utilizing a modern DevOps toolchain for efficient version control, containerization, and automated CI/CD pipelines.",
+  others: "Applying strong problem-solving, UI/UX principles, and agile methodologies to deliver high-quality, user-centric products.",
+}
+
+const SkillCard = ({ category, skills }: { category: Category; skills: (typeof skillsData)[Category] }) => {
   const Icon = categoryIcons[category]
   const title = category === "tools" ? "Tools & DevOps" : category.charAt(0).toUpperCase() + category.slice(1);
   return (
@@ -77,39 +83,17 @@ const SkillCard = ({ category, skills }: { category: Category; skills: Skill[] }
   )
 }
 
-const UsageDetails = ({ category, skills, isVisible }: { category: Category; skills: Skill[]; isVisible: boolean }) => {
+const UsageDetails = ({ category, isVisible }: { category: Category, isVisible: boolean }) => {
+  const description = usageDescriptions[category]
   const title = category === "tools" ? "Tools & DevOps" : category.charAt(0).toUpperCase() + category.slice(1);
-  const usageColors = ['bg-sky-500', 'bg-emerald-500', 'bg-amber-500', 'bg-violet-500', 'bg-pink-500'];
 
   return (
     <div className={cn(
       "bg-card text-card-foreground rounded-xl shadow-md p-6 w-full max-w-md transition-all duration-500",
       isVisible ? 'animate-fade-up' : 'opacity-0'
     )}>
-      <h3 className="text-2xl font-bold mb-4 flex items-center gap-2"><LineChart className="h-6 w-6 text-primary" /> Usage Details: {title}</h3>
-      <div className="space-y-6">
-        {skills.map(skill => (
-          <div key={skill.name}>
-            <h4 className="font-semibold">{skill.name}</h4>
-            <div className="mt-2 space-y-2">
-              {Object.entries(skill.usage).map(([use, percentage], index) => (
-                <div key={use}>
-                  <div className="flex justify-between text-sm text-muted-foreground mb-1">
-                    <span>{use.charAt(0).toUpperCase() + use.slice(1)}</span>
-                    <span>{percentage}%</span>
-                  </div>
-                  <div className="w-full h-2.5 rounded-full bg-secondary">
-                    <div
-                      className={cn("h-full rounded-full transition-all duration-500", usageColors[index % usageColors.length])}
-                      style={{ width: `${percentage}%` }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+      <h3 className="text-2xl font-bold mb-4 flex items-center gap-2"><Info className="h-6 w-6 text-primary" /> About {title}</h3>
+      <p className="text-muted-foreground leading-relaxed">{description}</p>
     </div>
   );
 }
@@ -142,14 +126,13 @@ export function SkillsSection() {
   const radius = (200 / Math.tan(Math.PI / categories.length)) * 0.8
   
   const activeCategory = categories[activeIndex]
-  const activeSkills = skillsData[activeCategory]
 
   return (
     <section id="skills" className="py-20 md:py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-center mb-16">My Tech Stack</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative h-96 w-full flex items-center justify-center lg:justify-start" style={{ perspective: '1000px' }}>
+          <div className="relative h-96 w-full flex items-center justify-center" style={{ perspective: '1000px' }}>
             <div
               className="absolute w-full h-full transition-transform duration-500 ease-in-out"
               style={{
@@ -179,25 +162,8 @@ export function SkillsSection() {
               })}
             </div>
           </div>
-
-          <div className="w-full max-w-md mx-auto">
-            {/* Desktop and Tablet view */}
-            <div className="hidden md:block">
-              <UsageDetails category={activeCategory} skills={activeSkills} isVisible={true} />
-            </div>
-            {/* Mobile view */}
-            <div className="md:hidden">
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="item-1">
-                  <AccordionTrigger>
-                    <h3 className="text-lg font-semibold flex items-center gap-2"><BarChart3 className="h-5 w-5" /> Usage Details</h3>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <UsageDetails category={activeCategory} skills={activeSkills} isVisible={true} />
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </div>
+          <div className="w-full max-w-md mx-auto hidden lg:block">
+            <UsageDetails category={activeCategory} isVisible={true} />
           </div>
         </div>
         <div className="flex justify-center items-center mt-8 gap-4">
