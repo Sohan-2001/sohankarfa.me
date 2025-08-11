@@ -29,7 +29,7 @@ export function HeroSection() {
           <div className="flex justify-center">
             <div className="p-2 rounded-full bg-white/80 dark:bg-[#F8F9FA]">
               <Image
-                src="https://placehold.co/400x400.png"
+                src="https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/PIVduhep_400x400.jpg"
                 alt="Alex Doe Headshot"
                 width={400}
                 height={400}
