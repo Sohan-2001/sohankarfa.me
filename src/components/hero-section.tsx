@@ -1,7 +1,7 @@
-import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 export function HeroSection() {
   return (
@@ -12,7 +12,7 @@ export function HeroSection() {
           <div className="absolute bottom-[-15rem] left-[-15rem] h-[30rem] w-[30rem] rounded-full bg-accent/5 blur-3xl"></div>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 xl:gap-20">
-          <div className="flex flex-col items-center text-center space-y-6 animate-fade-up">
+          <div className="flex flex-col items-center text-center space-y-6 animate-fade-up xl:items-start xl:text-left">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-foreground font-headline">
               Sohan Karfa
             </h1>
@@ -20,12 +20,12 @@ export function HeroSection() {
               Full-Stack Software Developer
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+              <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
                 <Link href="#projects">
                   View My Work <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
+              <Button asChild variant="outline" size="lg" className="rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
                 <Link href="#contact">Get in Touch</Link>
               </Button>
             </div>
