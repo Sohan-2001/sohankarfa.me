@@ -5,7 +5,7 @@ import { Code, Github, Linkedin, Twitter, Menu } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from "@/components/ui/sheet"
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -57,6 +57,12 @@ export function SiteHeader() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
+              <SheetHeader>
+                <SheetTitle>Navigation</SheetTitle>
+                <SheetDescription>
+                  Navigate to different sections of the page.
+                </SheetDescription>
+              </SheetHeader>
               <div className="flex flex-col pt-8">
                 {navLinks.map((link) => (
                   <Link key={link.href} href={link.href} className="py-2 text-lg font-medium">
