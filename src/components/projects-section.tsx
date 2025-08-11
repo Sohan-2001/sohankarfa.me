@@ -7,13 +7,20 @@ import { Github, ExternalLink } from "lucide-react"
 
 const projects = [
   {
-    title: "E-commerce Platform",
-    description: "A full-featured e-commerce site with product listings, a shopping cart, and a secure checkout process. Built with Next.js for high performance.",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "e-commerce online store",
-    stack: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-    demoUrl: "#",
-    repoUrl: "https://github.com/sohan-2001",
+    title: "AssesMint – AI-Powered Exam Platform",
+    description: `
+      <ul class="list-disc list-inside space-y-2 text-sm text-muted-foreground">
+        <li>Built a full-stack exam system using Next.js, TypeScript, PostgreSQL, and Flask API for secure email-based authentication via OTP.</li>
+        <li>Enabled exam creation with MCQs, essay, and custom questions, with targeted access through email filtering.</li>
+        <li>Integrated Genkit AI for syllabus-based question generation, reducing exam setup effort by 50%.</li>
+        <li>Implemented auto-evaluation to cut grading time by 95%, and enforced exam integrity with fullscreen lock, copy-paste restrictions, and Jitsi proctoring.</li>
+      </ul>
+    `,
+    image: "https://assessmint-seven.vercel.app/_next/image?url=https%3A%2F%2Fsw0u7owaczjz29lf.public.blob.vercel-storage.com%2FGemini_Generated_Image_k1wslck1wslck1ws.png&w=1920&q=75",
+    imageHint: "AI exam platform",
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "Genkit AI", "Flask"],
+    demoUrl: "https://assessmint-seven.vercel.app/",
+    repoUrl: "https://github.com/sohan-2001/AssesMint",
   },
   {
     title: "Project Management Tool",
@@ -64,7 +71,7 @@ export function ProjectsSection() {
                 <CardTitle className="pt-4">{project.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>{project.description}</CardDescription>
+                <div dangerouslySetInnerHTML={{ __html: project.description }} />
                 <div className="flex flex-wrap gap-2 mt-4">
                   {project.stack.map((tech) => (
                     <Badge key={tech} variant="secondary">{tech}</Badge>

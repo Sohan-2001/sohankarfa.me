@@ -21,6 +21,12 @@ const nextConfig: NextConfig = {
         hostname: 'sxldi6vsg8pc7vjq.public.blob.vercel-storage.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'assessmint-seven.vercel.app',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
