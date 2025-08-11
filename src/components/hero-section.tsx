@@ -11,7 +11,7 @@ export function HeroSection() {
       <CircuitBackground />
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-6xl">
-            <div className="flex flex-col items-center justify-between gap-12 text-center md:flex-row md:gap-16 lg:gap-20 xl:gap-24">
+            <div className="flex flex-col-reverse items-center justify-between gap-8 text-center md:flex-row md:gap-16 lg:gap-20 xl:gap-24">
               <div className="flex animate-fade-up flex-col items-center gap-4 text-center bg-background/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl shadow-lg">
                 <WobbleContainer>
                   <div className="space-y-4">
