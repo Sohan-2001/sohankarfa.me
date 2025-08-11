@@ -11,7 +11,7 @@ export function AboutSection() {
             I'm a passionate Full-Stack Developer with over 5 years of experience in creating dynamic, user-friendly web applications. My journey in tech started with a fascination for how things work, which led me to master both frontend and backend technologies. I thrive on challenges, love to learn continuously, and I'm dedicated to writing clean, efficient, and maintainable code. When I'm not coding, I enjoy exploring new technologies and contributing to open-source projects.
           </p>
           <Button asChild>
-            <a href="/resume.pdf" download>
+            <a href="https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/SOHAN%20KARFA%20-%20Resume%20PE.pdf" download>
               Download Resume <Download className="ml-2 h-5 w-5" />
             </a>
           </Button>
