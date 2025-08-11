@@ -29,17 +29,17 @@ export function ContactSection() {
                   </a>
                   <div className="flex space-x-4 mt-6">
                     <Button variant="outline" size="icon" className="bg-transparent dark:border-secondary-foreground/50 hover:bg-secondary-foreground/10" asChild>
-                      <Link href="https://github.com/sohan-2001" target="_blank" aria-label="GitHub">
+                      <Link href="https://github.com/sohan-2001" target="_blank" aria-label="GitHub Profile">
                         <Github className="h-5 w-5" />
                       </Link>
                     </Button>
                     <Button variant="outline" size="icon" className="bg-transparent dark:border-secondary-foreground/50 hover:bg-secondary-foreground/10" asChild>
-                      <Link href="https://www.linkedin.com/in/sohan-karfa-72819521b/" target="_blank" aria-label="LinkedIn">
+                      <Link href="https://www.linkedin.com/in/sohan-karfa-72819521b/" target="_blank" aria-label="LinkedIn Profile">
                         <Linkedin className="h-5 w-5" />
                       </Link>
                     </Button>
                     <Button variant="outline" size="icon" className="bg-transparent dark:border-secondary-foreground/50 hover:bg-secondary-foreground/10" asChild>
-                      <Link href="https://x.com/SohanKarfa" target="_blank" aria-label="Twitter">
+                      <Link href="https://x.com/SohanKarfa" target="_blank" aria-label="Twitter Profile">
                         <Twitter className="h-5 w-5" />
                       </Link>
                     </Button>

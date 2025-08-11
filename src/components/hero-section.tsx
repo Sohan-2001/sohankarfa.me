@@ -38,7 +38,7 @@ export function HeroSection() {
                 <div className="absolute inset-0 -m-4 rounded-full bg-primary/10 blur-3xl" />
                 <Image
                   src="https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/PIVduhep_400x400.jpg"
-                  alt="Sohan Karfa Headshot"
+                  alt="Sohan Karfa professional headshot"
                   width={400}
                   height={400}
                   className="relative h-64 w-64 rounded-full border-4 border-card object-cover shadow-lg sm:h-80 sm:w-80 lg:h-96 lg:w-96"

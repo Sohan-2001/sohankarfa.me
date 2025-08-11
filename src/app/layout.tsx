@@ -1,4 +1,4 @@
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from "@/components/ui/toaster";
@@ -11,9 +11,52 @@ const poppins = Poppins({
   variable: '--font-poppins',
 });
 
+const siteUrl = "https://your-portfolio-url.com"; // Replace with your actual domain
+
 export const metadata: Metadata = {
-  title: 'Me | Full-Stack Developer',
-  description: 'A clean, modern, and responsive portfolio website for a Full-Stack Software Developer.',
+  metadataBase: new URL(siteUrl),
+  title: 'Sohan Karfa | Full-Stack Developer | AI & Web Expert',
+  description: 'Portfolio of Sohan Karfa, a proficient Full-Stack Developer specializing in Next.js, React, TypeScript, Python, and Genkit AI. Explore my projects and skills.',
+  keywords: ['Full-Stack Developer', 'Sohan Karfa', 'Next.js', 'React', 'TypeScript', 'Python', 'Genkit AI', 'Firebase', 'PostgreSQL', 'Software Engineer', 'Portfolio'],
+  authors: [{ name: 'Sohan Karfa', url: siteUrl }],
+  creator: 'Sohan Karfa',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Sohan Karfa | Full-Stack Developer Portfolio',
+    description: 'Explore the work of Sohan Karfa, a developer skilled in creating modern web applications with AI integration.',
+    url: siteUrl,
+    siteName: 'Sohan Karfa Portfolio',
+    images: [
+      {
+        url: 'https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/PIVduhep_400x400.jpg', // Must be an absolute URL
+        width: 400,
+        height: 400,
+        alt: 'Sohan Karfa Profile Picture',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Sohan Karfa - Full-Stack Developer',
+    description: 'Check out my portfolio of projects in Next.js, AI, and more.',
+    creator: '@SohanKarfa',
+    images: ['https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/PIVduhep_400x400.jpg'], // Must be an absolute URL
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({

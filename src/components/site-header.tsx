@@ -23,7 +23,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
         <div className="mr-4 flex items-center">
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2" aria-label="Homepage">
             <Code className="h-6 w-6 text-primary" />
             <span className="font-bold">Me</span>
           </Link>
@@ -37,17 +37,17 @@ export function SiteHeader() {
         </nav>
         <div className="flex flex-1 items-center justify-end space-x-2">
           <Button variant="ghost" size="icon" asChild>
-            <Link href="https://github.com/sohan-2001" target="_blank" aria-label="GitHub">
+            <Link href="https://github.com/sohan-2001" target="_blank" aria-label="GitHub Profile">
               <Github className="h-5 w-5" />
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <Link href="https://www.linkedin.com/in/sohan-karfa-72819521b/" target="_blank" aria-label="LinkedIn">
+            <Link href="https://www.linkedin.com/in/sohan-karfa-72819521b/" target="_blank" aria-label="LinkedIn Profile">
               <Linkedin className="h-5 w-5" />
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <Link href="https://x.com/SohanKarfa" target="_blank" aria-label="Twitter">
+            <Link href="https://x.com/SohanKarfa" target="_blank" aria-label="Twitter Profile">
               <Twitter className="h-5 w-5" />
             </Link>
           </Button>
