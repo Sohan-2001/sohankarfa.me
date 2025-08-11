@@ -33,12 +33,19 @@ export async function sendMessage(prevState: FormState, formData: FormData): Pro
 
   const { name, email, message } = validatedFields.data;
   
+  // Construct the message body to include sender's info
+  const fullMessage = `
+    New message from: ${name}
+    Sender's Email: ${email}
+    
+    Message:
+    ${message}
+  `;
+  
   // The Flask API will receive this data and is responsible for sending the email.
   const emailPayload = {
-    name: name,
-    email: email, // The sender's email from the form
-    message: message,
-    recipient_email: 'sohan.karfa@gmail.com' // The fixed recipient
+    email: 'sohan.karfa@gmail.com', // The fixed recipient
+    message: fullMessage,
   };
 
   try {
@@ -50,9 +57,18 @@ export async function sendMessage(prevState: FormState, formData: FormData): Pro
       body: JSON.stringify(emailPayload),
     });
 
+    if (!response.ok) {
+        const errorResult = await response.json().catch(() => ({ error: 'Unknown API error' }));
+        console.error('API Error Response:', errorResult);
+        return { 
+          message: `Failed to send email. API returned status ${response.status}: ${errorResult.error || 'Unknown error'}`,
+          errors: {}
+        };
+    }
+
     const result = await response.json();
 
-    if (response.ok && result.success === 1) {
+    if (result.success === 1) {
       return { message: 'Your message has been sent successfully!' };
     } else {
       console.error('API Error Response:', result);
@@ -63,8 +79,12 @@ export async function sendMessage(prevState: FormState, formData: FormData): Pro
     }
   } catch (error) {
     console.error('Fetch API Error:', error);
+    let errorMessage = 'An unexpected error occurred. Please try again later.';
+    if (error instanceof Error) {
+        errorMessage = error.message;
+    }
     return { 
-      message: 'An unexpected error occurred. Please try again later.',
+      message: errorMessage,
       errors: {}
     };
   }
