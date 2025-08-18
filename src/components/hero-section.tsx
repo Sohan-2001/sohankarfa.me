@@ -17,7 +17,7 @@ export function HeroSection() {
                     <h1 className="max-w-2xl text-4xl font-bold tracking-tighter text-foreground sm:text-5xl md:text-6xl xl:text-7xl">
                       Sohan Karfa
                     </h1>
-                    <p className="max-w-md text-lg text-primary sm:text-xl md:text-2xl">
+                    <p className="max-w-md text-lg text-red-500 sm:text-xl md:text-2xl">
                       Full-Stack Software Developer
                     </p>
                     <div className="flex flex-col gap-4 sm:flex-row justify-center">
