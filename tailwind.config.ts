@@ -22,6 +22,8 @@ export default {
         code: ['monospace'],
       },
       colors: {
+        'aurora-purple': '#a855f7',
+        'aurora-cyan': '#22d3ee',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

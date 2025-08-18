@@ -86,7 +86,7 @@
   /* Aurora Gradient Background */
   .bg-aurora {
     position: relative;
-    background-color: #000000; /* Pure Black base */
+    background-color: #010813; /* Dark blue base */
     overflow: hidden;
   }
   
@@ -98,21 +98,21 @@
     width: 200%;
     height: 200%;
     z-index: 0;
-    opacity: 0.5;
+    opacity: 0.6;
     background-size: 200% 200%;
     filter: blur(80px);
     will-change: transform, opacity;
   }
 
   .bg-aurora::before {
-    background-image: radial-gradient(circle at 25% 25%, #ffffff 0%, transparent 35%),
-                      radial-gradient(ellipse at top left, #ffffff 0%, transparent 40%);
+    background-image: radial-gradient(circle at 25% 25%, var(--aurora-purple) 0%, transparent 35%),
+                      radial-gradient(ellipse at top left, var(--aurora-cyan) 0%, transparent 40%);
     animation: aurora-1 20s linear infinite;
   }
 
   .bg-aurora::after {
-    background-image: radial-gradient(circle at 75% 75%, #ffffff 0%, transparent 35%),
-                      radial-gradient(circle at 25% 75%, #ffffff 0%, transparent 35%);
+    background-image: radial-gradient(circle at 75% 75%, var(--aurora-purple) 0%, transparent 35%),
+                      radial-gradient(circle at 25% 75%, var(--aurora-cyan) 0%, transparent 35%);
     animation: aurora-2 20s linear infinite;
   }
   
