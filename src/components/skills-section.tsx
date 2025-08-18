@@ -4,7 +4,6 @@ import * as React from "react"
 import { Code, Server, Database, Cog, Star, ChevronLeft, ChevronRight, Info } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { CircuitBackground } from "@/components/circuit-background"
 
 const skillsData = {
   frontend: [
@@ -54,30 +53,38 @@ const SkillCard = ({ category, skills }: { category: Category; skills: (typeof s
   const title = category === "tools" ? "Tools & DevOps" : category.charAt(0).toUpperCase() + category.slice(1);
   const cardClasses = cn(
     "relative bg-card text-card-foreground rounded-2xl shadow-md p-6 w-64 flex flex-col h-full overflow-hidden",
+    "bg-cover bg-center",
     {
       "aurora-candy-card": category === "frontend",
     }
   );
+  
+  const cardStyle = category === 'backend' ? {
+    backgroundImage: "url('https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/1d30b5a0c298c02edaf2f501b22a6587.gif')",
+  } : {};
+
   return (
-    <div className={cardClasses}>
-      {category === 'backend' && <CircuitBackground />}
-      <div className="flex items-center gap-3 mb-4">
-        <Icon className="h-6 w-6 text-primary" />
-        <h3 className="text-xl font-bold">{title}</h3>
-      </div>
-      <div className="space-y-4">
-        {skills.map((skill) => (
-          <div key={skill.name}>
-            <span className="font-medium text-sm">{skill.name}</span>
-            <div className="w-full h-2 rounded-full bg-secondary mt-1">
-              <div
-                className="h-full rounded-full bg-primary"
-                style={{ width: `${skill.level}%` }}
-                aria-label={`${skill.name} proficiency ${skill.level}%`}
-              />
+    <div className={cardClasses} style={cardStyle}>
+      <div className="absolute inset-0 bg-black/60 z-0"/>
+      <div className="relative z-10">
+        <div className="flex items-center gap-3 mb-4">
+          <Icon className="h-6 w-6 text-primary" />
+          <h3 className="text-xl font-bold">{title}</h3>
+        </div>
+        <div className="space-y-4">
+          {skills.map((skill) => (
+            <div key={skill.name}>
+              <span className="font-medium text-sm">{skill.name}</span>
+              <div className="w-full h-2 rounded-full bg-secondary mt-1">
+                <div
+                  className="h-full rounded-full bg-primary"
+                  style={{ width: `${skill.level}%` }}
+                  aria-label={`${skill.name} proficiency ${skill.level}%`}
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   )
