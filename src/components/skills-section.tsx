@@ -144,7 +144,7 @@ export function SkillsSection() {
     <section id="skills" className="py-20 md:py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-center mb-8">My Tech Stack</h2>
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-12">
             <div className="inline-flex items-center justify-center gap-4 bg-secondary p-2 rounded-full">
                 <Button variant="outline" size="icon" onClick={handlePrev} aria-label="Previous skill category" className="rounded-full">
                     <ChevronLeft className="h-6 w-6" />
