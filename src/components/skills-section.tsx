@@ -4,7 +4,6 @@ import * as React from "react"
 import { Code, Server, Database, Cog, Star, ChevronLeft, ChevronRight, Info } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { DigitalRain } from "./digital-rain"
 
 const skillsData = {
   frontend: [
@@ -60,14 +59,18 @@ const SkillCard = ({ category, skills }: { category: Category; skills: (typeof s
     }
   );
   
-  const cardStyle = category === 'backend' ? {
-    backgroundImage: "url('https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/1d30b5a0c298c02edaf2f501b22a6587.gif')",
-  } : {};
+  const cardStyle = 
+    category === 'backend' ? {
+      backgroundImage: "url('https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/1d30b5a0c298c02edaf2f501b22a6587.gif')",
+    } : 
+    category === 'databases' ? {
+      backgroundImage: "url('https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/Gemini_Generated_Image_6vtkjh6vtkjh6vtk.png')",
+    } :
+    {};
 
   return (
     <div className={cardClasses} style={cardStyle}>
-      {category === 'databases' && <DigitalRain />}
-      <div className="absolute inset-0 bg-black/60 z-0"/>
+      {(category === 'backend' || category === 'databases') && <div className="absolute inset-0 bg-black/60 z-0"/>}
       <div className="relative z-10">
         <div className="flex items-center gap-3 mb-4">
           <Icon className="h-6 w-6 text-primary" />
