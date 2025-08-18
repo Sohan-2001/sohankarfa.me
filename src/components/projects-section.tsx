@@ -93,13 +93,13 @@ export function ProjectsSection() {
                 </div>
               </CardContent>
               <CardFooter className="flex justify-end gap-4">
-                <Button variant="outline" asChild>
+                <Button variant="outline" asChild className="rounded-none">
                   <Link href={project.repoUrl} target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4" /> GitHub
                   </Link>
                 </Button>
                 {project.demoUrl && (
-                  <Button asChild>
+                  <Button asChild className="rounded-none">
                     <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
                     </Link>
