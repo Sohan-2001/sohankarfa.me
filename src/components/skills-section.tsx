@@ -52,7 +52,7 @@ const SkillCard = ({ category, skills }: { category: Category; skills: (typeof s
   const Icon = categoryIcons[category]
   const title = category === "tools" ? "Tools & DevOps" : category.charAt(0).toUpperCase() + category.slice(1);
   return (
-    <div className="bg-card text-card-foreground rounded-xl shadow-md p-6 w-64 flex flex-col h-full">
+    <div className="bg-card text-card-foreground rounded-2xl shadow-md p-6 w-64 flex flex-col h-full">
       <div className="flex items-center gap-3 mb-4">
         <Icon className="h-6 w-6 text-primary" />
         <h3 className="text-xl font-bold">{title}</h3>
@@ -81,7 +81,7 @@ const UsageDetails = ({ category, isVisible }: { category: Category, isVisible: 
 
   return (
     <div className={cn(
-      "bg-card text-card-foreground rounded-xl shadow-md p-6 w-full max-w-md transition-all duration-500",
+      "bg-card text-card-foreground rounded-2xl shadow-md p-6 w-full max-w-md transition-all duration-500",
       isVisible ? 'animate-fade-up' : 'opacity-0'
     )}>
       <h3 className="text-2xl font-bold mb-4 flex items-center gap-2"><Info className="h-6 w-6 text-primary" /> {title} Usage</h3>
