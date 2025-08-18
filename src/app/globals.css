@@ -226,6 +226,18 @@
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
+
+  .neu-silver {
+    background-color: hsl(210, 15%, 95%);
+    box-shadow: 8px 8px 16px hsl(210, 15%, 85%), -8px -8px 16px hsl(0, 0%, 100%);
+  }
+
+  .dark .neu-silver {
+    background-color: hsl(217, 18%, 22%);
+    box-shadow: 8px 8px 16px hsl(217, 18%, 16%), -8px -8px 16px hsl(217, 18%, 28%);
+    color: hsl(210, 40%, 98%);
+  }
+
 }
 
 @keyframes holographic-shine {
