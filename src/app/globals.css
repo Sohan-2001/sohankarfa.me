@@ -86,7 +86,7 @@
   /* Aurora Gradient Background */
   .bg-aurora {
     position: relative;
-    background-color: #0c1424; /* A dark blue base */
+    background-color: #000000; /* Pure Black base */
     overflow: hidden;
   }
   
@@ -105,13 +105,13 @@
   }
 
   .bg-aurora::before {
-    background-image: radial-gradient(circle at 25% 25%, #ff0000 0%, transparent 35%),
-                      radial-gradient(ellipse at top left, #ffff00 0%, transparent 40%);
+    background-image: radial-gradient(circle at 25% 25%, #ffffff 0%, transparent 35%),
+                      radial-gradient(ellipse at top left, #ffffff 0%, transparent 40%);
     animation: aurora-1 20s linear infinite;
   }
 
   .bg-aurora::after {
-    background-image: radial-gradient(circle at 75% 75%, #0000ff 0%, transparent 35%),
+    background-image: radial-gradient(circle at 75% 75%, #ffffff 0%, transparent 35%),
                       radial-gradient(circle at 25% 75%, #ffffff 0%, transparent 35%);
     animation: aurora-2 20s linear infinite;
   }
