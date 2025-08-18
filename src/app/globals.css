@@ -85,10 +85,10 @@
 
   /* Aurora Gradient Background */
   .bg-aurora {
-    background: radial-gradient(circle at 10% 20%, rgba(0, 255, 200, 0.35) 0%, transparent 25%),
-                radial-gradient(circle at 90% 10%, rgba(0, 140, 255, 0.35) 0%, transparent 25%),
-                radial-gradient(circle at 30% 80%, rgba(255, 0, 150, 0.35) 0%, transparent 25%),
-                linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background: radial-gradient(circle at 10% 20%, rgba(255, 255, 0, 0.3) 0%, transparent 25%),
+                radial-gradient(circle at 90% 10%, rgba(0, 70, 255, 0.35) 0%, transparent 25%),
+                radial-gradient(circle at 30% 80%, rgba(0, 10, 150, 0.3) 0%, transparent 25%),
+                linear-gradient(135deg, #020617, #030a24, #0f172a);
     background-blend-mode: screen, overlay, normal;
   }
 
@@ -107,10 +107,13 @@
     background: transparent;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2), inset -5px -5px 10px rgba(255,255,255,0.05);
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2), -5px -5px 10px rgba(255,255,255,0.05);
     transition: all 0.3s ease;
   }
-  .neu-button-dark:hover {
-     box-shadow: 5px 5px 10px rgba(0,0,0,0.2), -5px -5px 10px rgba(255,255,255,0.05);
+  .neu-button-dark.inset {
+     box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2), inset -5px -5px 10px rgba(255,255,255,0.05);
+  }
+  .neu-button-dark:hover:not(.inset) {
+     box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2), inset -5px -5px 10px rgba(255,255,255,0.05);
   }
 }
