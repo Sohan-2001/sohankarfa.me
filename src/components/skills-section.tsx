@@ -122,8 +122,22 @@ export function SkillsSection() {
   }
 
   const cardAngle = 360 / categories.length
-  const radius = (200 / Math.tan(Math.PI / categories.length)) * 0.8
   
+  const [radius, setRadius] = React.useState(220);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setRadius(180); // Smaller radius for mobile
+      } else {
+        setRadius(220); // Default radius for larger screens
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const activeCategory = categories[activeIndex]
 
   return (
@@ -150,8 +164,8 @@ export function SkillsSection() {
             <ChevronRight className="h-6 w-6" />
           </Button>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative h-96 w-full flex items-center justify-center" style={{ perspective: '1000px' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-4 sm:px-0">
+          <div className="relative h-80 sm:h-96 w-full flex items-center justify-center" style={{ perspective: '1000px' }}>
             <div
               className="absolute w-full h-full transition-transform duration-500 ease-in-out"
               style={{
@@ -169,9 +183,9 @@ export function SkillsSection() {
                     className="absolute top-1/2 left-1/2 -mt-40 -ml-32 transition-all duration-500 ease-in-out"
                     style={{
                       transform: `rotateY(${angle}deg) translateZ(${radius}px) ${
-                        activeIndex === index ? 'scale(1.05)' : 'scale(0.9)'
+                        activeIndex === index ? 'scale(1)' : 'scale(0.85)'
                       } ${activeIndex !== index ? 'translateY(10px)' : 'translateY(0)'}`,
-                      opacity: activeIndex === index ? 1 : 0.7,
+                      opacity: activeIndex === index ? 1 : 0.6,
                       zIndex: activeIndex === index ? categories.length : categories.length - Math.abs(activeIndex - index),
                     }}
                   >
@@ -181,7 +195,7 @@ export function SkillsSection() {
               })}
             </div>
           </div>
-          <div className="w-full max-w-md mx-auto hidden lg:block">
+          <div className="w-full max-w-md mx-auto mt-8 lg:mt-0">
             <UsageDetails category={activeCategory} isVisible={true} />
           </div>
         </div>
