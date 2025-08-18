@@ -60,7 +60,7 @@ const techColorMap: { [key: string]: string } = {
     "Pydantic": "bg-pink-500 text-white border-pink-400",
     "Uvicorn": "bg-purple-500 text-white border-purple-400",
     "Tailwind CSS": "bg-cyan-500 text-white border-cyan-400",
-    "Firebase": "bg-yellow-500 text-white border-yellow-400",
+    "Firebase": "bg-yellow-500 text-black border-yellow-400",
 };
 
 export function ProjectsSection() {
