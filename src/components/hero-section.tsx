@@ -2,7 +2,6 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
-import { WobbleContainer } from "./wobble-container"
 import { cn } from "@/lib/utils"
 
 export function HeroSection() {
@@ -15,7 +14,6 @@ export function HeroSection() {
                 "flex animate-fade-up flex-col items-center gap-4 text-center p-8 md:p-10 rounded-3xl",
                 "glass neu-card-dark"
               )}>
-                <WobbleContainer>
                   <div className="space-y-4">
                     <h1 className="max-w-2xl text-4xl font-bold tracking-tighter text-foreground sm:text-5xl md:text-6xl xl:text-7xl">
                       Sohan Karfa
@@ -34,7 +32,6 @@ export function HeroSection() {
                       </Button>
                     </div>
                   </div>
-                </WobbleContainer>
               </div>
               <div className="relative flex-shrink-0 transition-transform duration-300 ease-in-out hover:scale-105">
                 <div className="absolute inset-0 -m-4 rounded-full bg-primary/10 blur-3xl" />

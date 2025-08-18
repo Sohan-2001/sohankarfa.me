@@ -97,7 +97,7 @@
     left: 50%;
     width: 1200px;
     height: 1200px;
-    background-image: radial-gradient(circle, hsl(var(--primary) / 0.2) 0%, transparent 60%);
+    background-image: radial-gradient(circle, hsl(var(--primary) / 0.1) 0%, transparent 60%);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     filter: blur(120px);
@@ -106,24 +106,10 @@
     will-change: transform, opacity;
     z-index: 0;
   }
-  
-  .bg-aurora::after {
-    content: '';
-    position: absolute;
-    inset: -100px;
-    background-image:
-        radial-gradient(ellipse 200% 150% at 15% 15%, hsl(180 80% 50% / 0.15), transparent),
-        radial-gradient(ellipse 150% 200% at 85% 85%, hsl(280 80% 50% / 0.15), transparent);
-    filter: blur(80px);
-    opacity: 0.8;
-    animation: swirl 15s linear infinite;
-    will-change: transform, opacity;
-    z-index: 0;
-  }
 
   /* Glassmorphism Effect */
   .glass {
-    background: rgba(10, 18, 30, 0.1);
+    background: rgba(10, 18, 30, 0.2);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.05);
