@@ -113,6 +113,10 @@ export default {
             transform: 'translate(-50%, -50%) rotate(360deg)',
           },
         },
+        'pulse-glow-light': {
+          '0%, 100%': { transform: 'translate(-50%, -50%) scale(1)', opacity: '0.8' },
+          '50%': { transform: 'translate(-50%, -50%) scale(1.15)', opacity: '1' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -120,6 +124,7 @@ export default {
         'fade-up': 'fade-up 0.5s ease-out forwards',
         'pulse-glow': 'pulse-glow 10s ease-in-out infinite',
         'aurora-candy': 'aurora-candy 15s linear infinite',
+        'pulse-glow-light': 'pulse-glow-light 12s infinite ease-in-out',
       },
     },
   },

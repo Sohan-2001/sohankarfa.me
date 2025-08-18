@@ -11,6 +11,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Sparkles } from 'lucide-react';
 import { generateMessage } from '@/ai/actions/generate-message';
+import { cn } from '@/lib/utils';
 
 const initialState: FormState = {
   message: '',
@@ -19,7 +20,7 @@ const initialState: FormState = {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} className="w-full">
+    <Button type="submit" disabled={pending} className="w-full glass-light">
       {pending ? 'Sending...' : 'Send Message'}
     </Button>
   );
@@ -83,12 +84,12 @@ export function ContactForm() {
     <form ref={formRef} action={formAction} className="space-y-4">
       <div>
         <Label htmlFor="name">Name</Label>
-        <Input id="name" name="name" required aria-describedby="name-error" value={name} onChange={(e) => setName(e.target.value)} />
+        <Input id="name" name="name" required aria-describedby="name-error" value={name} onChange={(e) => setName(e.target.value)} className="glass-light" />
         {state.errors?.name && <p id="name-error" className="text-sm font-medium text-destructive mt-1">{state.errors.name[0]}</p>}
       </div>
       <div>
         <Label htmlFor="email">Email</Label>
-        <Input id="email" name="email" type="email" required aria-describedby="email-error" />
+        <Input id="email" name="email" type="email" required aria-describedby="email-error" className="glass-light" />
         {state.errors?.email && <p id="email-error" className="text-sm font-medium text-destructive mt-1">{state.errors.email[0]}</p>}
       </div>
       
@@ -96,7 +97,7 @@ export function ContactForm() {
         <Label htmlFor="purpose">Purpose</Label>
         <div className="flex flex-wrap sm:flex-nowrap gap-2">
           <Select name="purpose" value={purpose} onValueChange={setPurpose}>
-            <SelectTrigger id="purpose" className="w-full sm:w-auto flex-grow">
+            <SelectTrigger id="purpose" className={cn("w-full sm:w-auto flex-grow", "glass-light")}>
               <SelectValue placeholder="Select a purpose" />
             </SelectTrigger>
             <SelectContent>
@@ -106,7 +107,7 @@ export function ContactForm() {
               <SelectItem value="general">General Question</SelectItem>
             </SelectContent>
           </Select>
-          <Button type="button" variant="outline" onClick={handleGenerateMessage} disabled={isGenerating} className="w-full sm:w-auto flex-shrink-0">
+          <Button type="button" variant="outline" onClick={handleGenerateMessage} disabled={isGenerating} className={cn("w-full sm:w-auto flex-shrink-0", "glass-light")}>
             <Sparkles className={`mr-2 h-4 w-4 ${isGenerating ? 'animate-spin' : ''}`} />
             {isGenerating ? 'Generating...' : 'AI Assist'}
           </Button>
@@ -123,6 +124,7 @@ export function ContactForm() {
           aria-describedby="message-error" 
           value={message} 
           onChange={(e) => setMessage(e.target.value)} 
+          className="glass-light"
         />
         {state.errors?.message && <p id="message-error" className="text-sm font-medium text-destructive mt-1">{state.errors.message[0]}</p>}
       </div>

@@ -6,10 +6,10 @@ import Link from "next/link"
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-20 md:py-24 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="relative py-20 md:py-24 bg-aurora-light">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <Card className="shadow-md dark:shadow-lg">
+          <Card className="shadow-md dark:shadow-lg glass-light">
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="p-8">
                 <CardHeader className="p-0 mb-6">
@@ -20,7 +20,7 @@ export function ContactSection() {
                 </CardHeader>
                 <ContactForm />
               </div>
-              <div className="bg-secondary text-secondary-foreground p-8 rounded-r-lg flex flex-col justify-center">
+              <div className="bg-secondary/50 text-secondary-foreground p-8 rounded-r-lg flex flex-col justify-center">
                 <h3 className="text-xl font-semibold mb-4 text-foreground dark:text-secondary-foreground">Contact Information</h3>
                 <div className="space-y-4">
                   <a href="mailto:sohan.karfa@gmail.com" className="flex items-center gap-3 hover:text-primary transition-colors">
