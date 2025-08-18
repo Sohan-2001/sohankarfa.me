@@ -4,6 +4,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription }
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Github, ExternalLink } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 const projects = [
   {
@@ -48,6 +49,20 @@ const projects = [
   },
 ]
 
+const techColorMap: { [key: string]: string } = {
+    "Next.js": "bg-black text-white border-gray-700",
+    "TypeScript": "bg-blue-600 text-white border-blue-500",
+    "PostgreSQL": "bg-indigo-400 text-white border-indigo-300",
+    "Genkit AI": "bg-green-500 text-white border-green-400",
+    "Flask": "bg-gray-700 text-white border-gray-600",
+    "FastAPI": "bg-teal-500 text-white border-teal-400",
+    "Python": "bg-yellow-400 text-black border-yellow-300",
+    "Pydantic": "bg-pink-500 text-white border-pink-400",
+    "Uvicorn": "bg-purple-500 text-white border-purple-400",
+    "Tailwind CSS": "bg-cyan-500 text-white border-cyan-400",
+    "Firebase": "bg-yellow-500 text-white border-yellow-400",
+};
+
 export function ProjectsSection() {
   return (
     <section id="projects" className="py-20 md:py-24">
@@ -73,7 +88,7 @@ export function ProjectsSection() {
                 </CardDescription>
                 <div className="flex flex-wrap gap-2 mt-4">
                   {project.stack.map((tech) => (
-                    <Badge key={tech} variant="secondary">{tech}</Badge>
+                    <Badge key={tech} variant="outline" className={cn("border", techColorMap[tech] || "bg-secondary text-secondary-foreground")}>{tech}</Badge>
                   ))}
                 </div>
               </CardContent>
