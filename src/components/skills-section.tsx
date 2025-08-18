@@ -155,7 +155,7 @@ export function SkillsSection() {
                         key={index} 
                         onClick={() => setActiveIndex(index)}
                         className={cn("w-2.5 h-2.5 rounded-full transition-all duration-300", 
-                            activeIndex === index ? 'bg-primary scale-125' : 'bg-muted'
+                            activeIndex === index ? 'bg-primary scale-125' : 'bg-background'
                         )}
                         aria-label={`Go to category ${index + 1}`}
                         />
