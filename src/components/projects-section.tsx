@@ -62,7 +62,7 @@ export function ProjectsSection() {
                   alt={project.alt}
                   width={600}
                   height={400}
-                  className="rounded-t-lg object-cover aspect-[3/2]"
+                  className="rounded-t-lg w-full h-auto"
                   data-ai-hint={project.imageHint}
                 />
                 <CardTitle className="pt-4">{project.title}</CardTitle>
