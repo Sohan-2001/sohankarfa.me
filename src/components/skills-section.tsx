@@ -4,6 +4,7 @@ import * as React from "react"
 import { Code, Server, Database, Cog, Star, ChevronLeft, ChevronRight, Info } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { DigitalRain } from "./digital-rain"
 
 const skillsData = {
   frontend: [
@@ -65,6 +66,7 @@ const SkillCard = ({ category, skills }: { category: Category; skills: (typeof s
 
   return (
     <div className={cardClasses} style={cardStyle}>
+      {category === 'databases' && <DigitalRain />}
       <div className="absolute inset-0 bg-black/60 z-0"/>
       <div className="relative z-10">
         <div className="flex items-center gap-3 mb-4">
