@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import * as React from "react"
-import { Code, Github, Linkedin, Twitter, Menu } from "lucide-react"
+import { Code, Menu } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetClose, SheetTrigger } from "@/components/ui/sheet"
@@ -36,21 +36,6 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex flex-1 items-center justify-end space-x-2">
-          <Button variant="ghost" size="icon" asChild>
-            <Link href="https://github.com/sohan-2001" target="_blank" aria-label="GitHub Profile">
-              <Github className="h-5 w-5" />
-            </Link>
-          </Button>
-          <Button variant="ghost" size="icon" asChild>
-            <Link href="https://www.linkedin.com/in/sohan-karfa-72819521b/" target="_blank" aria-label="LinkedIn Profile">
-              <Linkedin className="h-5 w-5" />
-            </Link>
-          </Button>
-          <Button variant="ghost" size="icon" asChild>
-            <Link href="https://x.com/SohanKarfa" target="_blank" aria-label="Twitter Profile">
-              <Twitter className="h-5 w-5" />
-            </Link>
-          </Button>
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="lg:hidden">
