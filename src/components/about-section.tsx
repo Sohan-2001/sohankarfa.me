@@ -13,7 +13,7 @@ backend systems. Experienced in building scalable projects using Next.js, Python
 Proven problem-solver with achievements in competitive coding, hackathons, and real-world application
 development. Quick to adapt, collaborative, and always eager to learn new technologies.
           </p>
-          <Button asChild>
+          <Button asChild className="btn-hologram">
             <a href="https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/SOHAN%20KARFA%20-%20Resume%20PE.pdf" download>
               Download Resume <Download className="ml-2 h-5 w-5" />
             </a>
