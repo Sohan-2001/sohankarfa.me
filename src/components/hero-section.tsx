@@ -21,7 +21,7 @@ export function HeroSection() {
                       Full-Stack Software Developer
                     </p>
                     <div className="flex flex-col gap-4 sm:flex-row justify-center">
-                      <Button asChild size="lg" className="rounded-full neu-button-dark bg-primary text-primary-foreground">
+                      <Button asChild size="lg" className="rounded-full neu-button-dark bg-primary text-yellow-300">
                         <Link href="#projects">
                           View My Work <ArrowRight className="ml-2 h-5 w-5" />
                         </Link>
