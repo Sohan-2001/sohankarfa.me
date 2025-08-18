@@ -4,6 +4,7 @@ import * as React from "react"
 import { Code, Server, Database, Cog, Star, ChevronLeft, ChevronRight, Info } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { CircuitBackground } from "@/components/circuit-background"
 
 const skillsData = {
   frontend: [
@@ -52,13 +53,14 @@ const SkillCard = ({ category, skills }: { category: Category; skills: (typeof s
   const Icon = categoryIcons[category]
   const title = category === "tools" ? "Tools & DevOps" : category.charAt(0).toUpperCase() + category.slice(1);
   const cardClasses = cn(
-    "bg-card text-card-foreground rounded-2xl shadow-md p-6 w-64 flex flex-col h-full",
+    "relative bg-card text-card-foreground rounded-2xl shadow-md p-6 w-64 flex flex-col h-full overflow-hidden",
     {
       "aurora-candy-card": category === "frontend",
     }
   );
   return (
     <div className={cardClasses}>
+      {category === 'backend' && <CircuitBackground />}
       <div className="flex items-center gap-3 mb-4">
         <Icon className="h-6 w-6 text-primary" />
         <h3 className="text-xl font-bold">{title}</h3>
