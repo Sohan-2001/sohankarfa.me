@@ -109,7 +109,7 @@
 
   /* Glassmorphism Effect */
   .glass {
-    background: rgba(10, 18, 30, 0.2);
+    background: rgba(10, 18, 30, 0.1);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -189,10 +189,49 @@
   .btn-hologram:hover:after {
     transform: scale(3);
   }
+  
+  .aurora-candy-card {
+    position: relative;
+    overflow: hidden;
+    background-color: #020c18; /* Same as dark card */
+    z-index: 1;
+  }
+
+  .aurora-candy-card::before,
+  .aurora-candy-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    z-index: -1;
+    filter: blur(60px);
+    opacity: 0.4;
+  }
+  
+  .aurora-candy-card::before {
+    background: radial-gradient(circle at 25% 25%, #ff00ff, #00ffff 50%, transparent 70%);
+    animation: aurora-candy 15s linear infinite;
+  }
+
+  .aurora-candy-card::after {
+    background: radial-gradient(circle at 75% 75%, #00ff00, #ffff00 50%, transparent 70%);
+    animation: aurora-candy 15s linear infinite reverse;
+  }
 }
 
 @keyframes holographic-shine {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+@keyframes aurora-candy {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }

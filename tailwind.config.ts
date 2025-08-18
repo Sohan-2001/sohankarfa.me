@@ -105,12 +105,21 @@ export default {
           '0%, 100%': { transform: 'translate(-50%, -50%) scale(1)', opacity: '0.4' },
           '50%': { transform: 'translate(-50%, -50%) scale(1.1)', opacity: '0.6' },
         },
+        'aurora-candy': {
+          '0%': {
+            transform: 'translate(-50%, -50%) rotate(0deg)',
+          },
+          '100%': {
+            transform: 'translate(-50%, -50%) rotate(360deg)',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-up': 'fade-up 0.5s ease-out forwards',
         'pulse-glow': 'pulse-glow 10s ease-in-out infinite',
+        'aurora-candy': 'aurora-candy 15s linear infinite',
       },
     },
   },
