@@ -94,9 +94,9 @@ export function ContactForm() {
       
       <div className="space-y-2">
         <Label htmlFor="purpose">Purpose</Label>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap sm:flex-nowrap gap-2">
           <Select name="purpose" value={purpose} onValueChange={setPurpose}>
-            <SelectTrigger id="purpose" className="flex-grow">
+            <SelectTrigger id="purpose" className="w-full sm:w-auto flex-grow">
               <SelectValue placeholder="Select a purpose" />
             </SelectTrigger>
             <SelectContent>
@@ -106,7 +106,7 @@ export function ContactForm() {
               <SelectItem value="general">General Question</SelectItem>
             </SelectContent>
           </Select>
-          <Button type="button" variant="outline" onClick={handleGenerateMessage} disabled={isGenerating}>
+          <Button type="button" variant="outline" onClick={handleGenerateMessage} disabled={isGenerating} className="w-full sm:w-auto flex-shrink-0">
             <Sparkles className={`mr-2 h-4 w-4 ${isGenerating ? 'animate-spin' : ''}`} />
             {isGenerating ? 'Generating...' : 'AI Assist'}
           </Button>
