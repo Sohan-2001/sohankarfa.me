@@ -2,17 +2,15 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
-import { CircuitBackground } from "@/components/circuit-background"
 import { WobbleContainer } from "./wobble-container"
 
 export function HeroSection() {
   return (
-    <section id="home" className="relative overflow-hidden py-20 md:py-32">
-      <CircuitBackground />
+    <section id="home" className="relative overflow-hidden py-20 md:py-32 bg-aurora">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-6xl">
             <div className="flex flex-col-reverse items-center justify-between gap-8 text-center md:flex-row md:gap-16 lg:gap-20 xl:gap-24">
-              <div className="flex animate-fade-up flex-col items-center gap-4 text-center bg-background/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl shadow-lg">
+              <div className="flex animate-fade-up flex-col items-center gap-4 text-center glass p-8 md:p-10 rounded-2xl">
                 <WobbleContainer>
                   <div className="space-y-4">
                     <h1 className="max-w-2xl text-4xl font-bold tracking-tighter text-foreground sm:text-5xl md:text-6xl xl:text-7xl">
@@ -22,12 +20,12 @@ export function HeroSection() {
                       Full-Stack Software Developer
                     </p>
                     <div className="flex flex-col gap-4 sm:flex-row justify-center">
-                      <Button asChild size="lg" className="rounded-full">
+                      <Button asChild size="lg" className="rounded-full neu-button-dark bg-primary text-primary-foreground">
                         <Link href="#projects">
                           View My Work <ArrowRight className="ml-2 h-5 w-5" />
                         </Link>
                       </Button>
-                      <Button asChild variant="outline" size="lg" className="rounded-full">
+                      <Button asChild variant="outline" size="lg" className="rounded-full neu-button-dark">
                         <Link href="#contact">Get in Touch</Link>
                       </Button>
                     </div>
