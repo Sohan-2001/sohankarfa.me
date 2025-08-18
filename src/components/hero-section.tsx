@@ -12,7 +12,7 @@ export function HeroSection() {
         <div className="mx-auto max-w-6xl">
             <div className="flex flex-col-reverse items-center justify-between gap-8 text-center md:flex-row md:gap-16 lg:gap-20 xl:gap-24">
               <div className={cn(
-                "flex animate-fade-up flex-col items-center gap-4 text-center p-8 md:p-10 rounded-2xl",
+                "flex animate-fade-up flex-col items-center gap-4 text-center p-8 md:p-10 rounded-3xl",
                 "glass neu-card-dark"
               )}>
                 <WobbleContainer>
