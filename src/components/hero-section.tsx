@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 export function HeroSection() {
   return (
     <section id="home" className="relative overflow-hidden py-20 md:py-32 bg-aurora">
-      <div className="container mx-auto px-4">
+       <div className="container mx-auto px-4 relative z-10">
         <div className="mx-auto max-w-6xl">
             <div className="flex flex-col-reverse items-center justify-between gap-8 text-center md:flex-row md:gap-16 lg:gap-20 xl:gap-24">
               <div className="flex animate-fade-up flex-col items-center gap-4 text-center glass p-8 md:p-10 rounded-2xl">

@@ -7,13 +7,13 @@
     @apply scroll-smooth;
   }
   :root {
-    --background: 240 10% 98%; /* #f9f9fa */
+    --background: 240 10% 98%;
     --foreground: 240 10% 3.9%;
     --card: 240 10% 100%;
     --card-foreground: 240 10% 3.9%;
     --popover: 240 10% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 205 90% 45%; /* #0a8cf1 */
+    --primary: 205 90% 45%;
     --primary-foreground: 0 0% 100%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
@@ -85,12 +85,37 @@
 
   /* Aurora Gradient Background */
   .bg-aurora {
-    background: radial-gradient(ellipse 80% 50% at 5% 40%, rgba(255, 255, 0, 0.2) 0%, transparent 70%),
-                radial-gradient(circle at 90% 10%, rgba(0, 70, 255, 0.3) 0%, transparent 25%),
-                radial-gradient(circle at 30% 80%, rgba(0, 10, 150, 0.25) 0%, transparent 25%),
-                linear-gradient(135deg, #020617, #030a24, #0f172a);
-    background-blend-mode: screen, overlay, normal;
+    position: relative;
+    background-color: #0c1424; /* A dark blue base */
+    overflow: hidden;
   }
+  
+  .bg-aurora::before, .bg-aurora::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    z-index: 0;
+    opacity: 0.5;
+    background-size: 200% 200%;
+    filter: blur(80px);
+    will-change: transform, opacity;
+  }
+
+  .bg-aurora::before {
+    background-image: radial-gradient(circle at 25% 25%, #ff0000 0%, transparent 35%),
+                      radial-gradient(circle at 75% 25%, #ffff00 0%, transparent 35%);
+    animation: aurora-1 20s linear infinite;
+  }
+
+  .bg-aurora::after {
+    background-image: radial-gradient(circle at 75% 75%, #0000ff 0%, transparent 35%),
+                      radial-gradient(circle at 25% 75%, #ffffff 0%, transparent 35%);
+    animation: aurora-2 20s linear infinite;
+  }
+  
 
   /* Glassmorphism Effect */
   .glass {
