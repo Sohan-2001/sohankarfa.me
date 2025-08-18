@@ -5,8 +5,8 @@ import * as React from "react"
 import { Code, Github, Linkedin, Twitter, Menu } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetClose, SheetTrigger } from "@/components/ui/sheet"
+import { cn } from "@/lib/utils"
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -20,7 +20,7 @@ export function SiteHeader() {
   const [isSheetOpen, setIsSheetOpen] = React.useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-transparent glass">
+    <header className={cn("sticky top-0 z-50 w-full border-b border-transparent", "glass neu-card-dark")}>
       <div className="container flex h-14 items-center">
         <div className="mr-4 flex items-center">
           <Link href="/" className="flex items-center space-x-2" aria-label="Homepage">
@@ -51,7 +51,6 @@ export function SiteHeader() {
               <Twitter className="h-5 w-5" />
             </Link>
           </Button>
-          <ThemeToggle />
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="lg:hidden">
