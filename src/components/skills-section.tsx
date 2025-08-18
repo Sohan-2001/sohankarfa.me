@@ -166,7 +166,7 @@ export function SkillsSection() {
                 </Button>
             </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-4 sm:px-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center justify-items-center px-4 sm:px-0">
           <div className="relative h-80 sm:h-96 w-full flex items-center justify-center" style={{ perspective: '1000px' }}>
             <div
               className="absolute w-full h-full transition-transform duration-500 ease-in-out"
@@ -197,7 +197,7 @@ export function SkillsSection() {
               })}
             </div>
           </div>
-          <div className="w-full max-w-md mx-auto mt-8 lg:mt-0">
+          <div className="w-full max-w-md mx-auto mt-8 lg:mt-0 hidden lg:block">
             <UsageDetails category={activeCategory} isVisible={true} />
           </div>
         </div>
