@@ -58,6 +58,7 @@ const SkillCard = ({ category, skills }: { category: Category; skills: (typeof s
       "aurora-candy-card": category === "frontend",
       "glass-whitish text-foreground": category === "tools",
       "neu-silver": category === "others",
+      "text-white": category === "backend" || category === "databases",
     }
   );
   
