@@ -3,13 +3,14 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Github, Linkedin, Twitter, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { cn } from "@/lib/utils"
 
 export function ContactSection() {
   return (
     <section id="contact" className="relative py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <Card className="shadow-md dark:shadow-lg bg-purple-900/10 dark:bg-purple-900/20 backdrop-blur-lg border-purple-200/20">
+          <Card className={cn("shadow-md dark:shadow-lg border-purple-200/20 aurora-contact-card")}>
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="p-8">
                 <CardHeader className="p-0 mb-6">

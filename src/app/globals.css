@@ -211,6 +211,37 @@
     background: radial-gradient(circle at 75% 75%, #00ff00, #ffff00 50%, transparent 70%);
     animation: aurora-candy 15s linear infinite reverse;
   }
+  
+  .aurora-contact-card {
+    position: relative;
+    overflow: hidden;
+    background-color: hsl(var(--card));
+    z-index: 1;
+  }
+  
+  .aurora-contact-card::before,
+  .aurora-contact-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    z-index: -1;
+    filter: blur(80px);
+    opacity: 0.5;
+  }
+
+  .aurora-contact-card::before {
+    background: radial-gradient(circle at 25% 75%, #a855f7, #ffff00 60%, transparent 80%);
+    animation: aurora-candy 18s linear infinite;
+  }
+  
+  .aurora-contact-card::after {
+    background: radial-gradient(circle at 75% 25%, #ffff00, #a855f7 60%, transparent 80%);
+    animation: aurora-candy 18s linear infinite reverse;
+  }
+
 
   .glass-whitish {
     background: rgba(255, 255, 255, 0.1);
