@@ -29,7 +29,7 @@ export function HeroSection() {
                           View My Work <ArrowRight className="ml-2 h-5 w-5" />
                         </Link>
                       </Button>
-                      <Button asChild variant="outline" size="lg" className={cn("rounded-full neu-button-dark inset")}>
+                      <Button asChild variant="outline" size="lg" className={cn("rounded-full neu-button-dark dark:inset")}>
                         <Link href="#contact">Get in Touch</Link>
                       </Button>
                     </div>

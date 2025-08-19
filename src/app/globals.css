@@ -86,11 +86,35 @@
   /* Aurora Gradient Background */
   .bg-aurora {
     position: relative;
-    background-color: hsl(222 84% 4%);
     overflow: hidden;
   }
+
+  :not(.dark) .bg-aurora {
+    background-color: hsl(var(--secondary));
+  }
   
-  .bg-aurora::before {
+  :not(.dark) .bg-aurora::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1200px;
+    height: 1200px;
+    background-image: radial-gradient(ellipse 50% 50% at 50% 50%,rgba(255, 255, 255, 0.8),transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(100px);
+    opacity: 0.8;
+    animation: pulse-glow-light 12s infinite ease-in-out;
+    will-change: transform, opacity;
+    z-index: 0;
+  }
+
+  .dark .bg-aurora {
+    background-color: hsl(222 84% 4%);
+  }
+  
+  .dark .bg-aurora::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -291,5 +315,11 @@
   0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
   50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
 }
+
+@keyframes pulse-glow-light {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+    50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+    
 
     
