@@ -1,3 +1,4 @@
+
 import { ContactForm } from "@/components/contact-form"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Github, Linkedin, Twitter, Mail } from "lucide-react"
@@ -15,7 +16,7 @@ export function ContactSection() {
               <div className="p-8">
                 <CardHeader className="p-0 mb-6">
                   <CardTitle className="text-2xl">Get In Touch</CardTitle>
-                  <CardDescription>
+                  <CardDescription className="text-yellow-300">
                     Have a project in mind or just want to say hi? Fill out the form or email me directly.
                   </CardDescription>
                 </CardHeader>
