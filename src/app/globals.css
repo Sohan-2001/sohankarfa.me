@@ -190,10 +190,6 @@
     box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3);
     border-color: rgba(255, 255, 255, 0.4);
   }
-
-  .btn-hologram:hover:after {
-    transform: scale(3);
-  }
   
   .aurora-candy-card {
     position: relative;

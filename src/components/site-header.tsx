@@ -7,6 +7,7 @@ import { Code, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetClose, SheetTrigger } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
+import { ThemeSwitcher } from "./theme-switcher"
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -36,6 +37,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex flex-1 items-center justify-end space-x-2">
+           <ThemeSwitcher />
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="lg:hidden">
