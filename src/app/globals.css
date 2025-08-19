@@ -91,17 +91,17 @@
   }
   
   .bg-aurora::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
     width: 1200px;
     height: 1200px;
-    background-image: radial-gradient(circle, hsl(var(--primary) / 0.1) 0%, transparent 60%);
+    background-image: radial-gradient(ellipse 50% 50% at 50% 50%,rgba(168, 85, 247, 0.2),transparent);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    filter: blur(120px);
-    opacity: 0.4;
+    filter: blur(100px);
+    opacity: 0.8;
     animation: pulse-glow 10s infinite ease-in-out;
     will-change: transform, opacity;
     z-index: 0;
@@ -283,6 +283,11 @@
   100% {
     transform: translate(-50%, -50%) rotate(360deg);
   }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
 }
 
 @keyframes pulse-glow-light {
