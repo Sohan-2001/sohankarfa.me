@@ -158,8 +158,12 @@
 
   .neu-button-red-glow:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 100, 100, 0.3);
+    box-shadow: 0 8px 25px rgba(255, 255, 0, 0.3);
     border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .dark .neu-button-red-glow:hover {
+    box-shadow: 0 8px 25px rgba(255, 100, 100, 0.3);
   }
 
   /* Hologram Prism Button */
@@ -333,3 +337,4 @@
     
 
     
+
