@@ -107,44 +107,6 @@
     z-index: 0;
   }
   
-  .bg-aurora-light {
-    position: relative;
-    background-color: hsl(var(--background));
-    overflow: hidden;
-  }
-
-  .bg-aurora-light::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 1200px;
-    height: 1200px;
-    background-image: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(255, 0, 0, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    filter: blur(100px);
-    opacity: 0.8;
-    animation: pulse-glow-light 12s infinite ease-in-out;
-    will-change: transform, opacity;
-    z-index: 0;
-  }
-
-  /* Glassmorphism Effect */
-  .glass {
-    background: rgba(10, 18, 30, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-  }
-  
-  .glass-light {
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
   .neu-card-dark {
      box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3), inset -2px -2px 5px rgba(255,255,255,0.05);
   }
@@ -287,10 +249,5 @@
 
 @keyframes pulse-glow {
   0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
-  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
-}
-
-@keyframes pulse-glow-light {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
   50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
 }
