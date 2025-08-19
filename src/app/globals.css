@@ -294,6 +294,16 @@
     color: hsl(210, 40%, 98%);
   }
 
+  .neu-light {
+    border-radius: 0.5rem;
+    background: hsl(var(--secondary));
+    box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff;
+    transition: all 0.3s ease;
+  }
+
+  .neu-light:hover {
+    box-shadow: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff;
+  }
 }
 
 @keyframes holographic-shine {

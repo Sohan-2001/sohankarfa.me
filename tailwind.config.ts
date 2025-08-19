@@ -74,6 +74,9 @@ export default {
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))',
         },
+        stone: {
+          '700': '#44403c',
+        }
       },
       borderRadius: {
         lg: 'var(--radius)',
