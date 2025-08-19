@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 
 export function ContactSection() {
   return (
-    <section id="contact" className="relative py-20 md:py-24 bg-background">
+    <section id="contact" className="relative py-20 md:py-24 bg-secondary">
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <Card className={cn("shadow-md dark:shadow-lg border-purple-200/20 aurora-contact-card")}>
@@ -16,7 +16,7 @@ export function ContactSection() {
               <div className="p-8">
                 <CardHeader className="p-0 mb-6">
                   <CardTitle className="text-2xl">Get In Touch</CardTitle>
-                  <CardDescription className="text-yellow-300">
+                  <CardDescription className="text-purple-800 dark:text-yellow-300">
                     Have a project in mind or just want to say hi? Fill out the form or email me directly.
                   </CardDescription>
                 </CardHeader>
