@@ -1,3 +1,4 @@
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
@@ -24,12 +25,12 @@ export function HeroSection() {
                       Full-Stack Software Developer
                     </p>
                     <div className="flex flex-col gap-4 sm:flex-row justify-center">
-                      <Button asChild size="lg" className="rounded-full neu-button-red-glow text-yellow-300">
+                      <Button asChild size="lg" className="rounded-full neu-button-red-glow text-green-800 dark:text-yellow-300">
                         <Link href="#projects">
                           View My Work <ArrowRight className="ml-2 h-5 w-5" />
                         </Link>
                       </Button>
-                      <Button asChild variant="outline" size="lg" className={cn("rounded-full neu-button-dark dark:inset")}>
+                      <Button asChild variant="outline" size="lg" className={cn("rounded-full neu-button-dark", { "dark:inset": true, "bg-white/50": true })}>
                         <Link href="#contact">Get in Touch</Link>
                       </Button>
                     </div>
@@ -54,5 +55,3 @@ export function HeroSection() {
     </section>
   )
 }
-
-    
