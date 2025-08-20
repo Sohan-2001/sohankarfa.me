@@ -17,7 +17,19 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Sohan Karfa | Full-Stack Developer | AI & Web Expert',
   description: 'Portfolio of Sohan Karfa, a proficient Full-Stack Developer specializing in Next.js, React, TypeScript, Python, and Genkit AI. Explore my projects and skills.',
-  keywords: ['Full-Stack Developer', 'Sohan Karfa', 'Next.js', 'React', 'TypeScript', 'Python', 'Genkit AI', 'Firebase', 'PostgreSQL', 'Software Engineer', 'Portfolio'],
+  keywords: [
+    'Full-Stack Developer',
+    'Sohan Karfa',
+    'Next.js',
+    'React',
+    'TypeScript',
+    'Python',
+    'Genkit AI',
+    'Firebase',
+    'PostgreSQL',
+    'Software Engineer',
+    'Portfolio',
+  ],
   authors: [{ name: 'Sohan Karfa', url: siteUrl }],
   creator: 'Sohan Karfa',
   alternates: {
@@ -30,21 +42,21 @@ export const metadata: Metadata = {
     siteName: 'Sohan Karfa Portfolio',
     images: [
       {
-        url: 'https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/PIVduhep_400x400.jpg', // Must be an absolute URL
+        url: `${siteUrl}/preview.png`, // now points to /public/preview.png
         width: 400,
         height: 400,
-        alt: 'Sohan Karfa Profile Picture',
+        alt: 'Portfolio Preview - Sohan Karfa',
       },
     ],
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image', // large banner preview
     title: 'Sohan Karfa - Full-Stack Developer',
     description: 'Check out my portfolio of projects in Next.js, AI, and more.',
     creator: '@SohanKarfa',
-    images: ['https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/PIVduhep_400x400.jpg'], // Must be an absolute URL
+    images: [`${siteUrl}/preview.png`], // absolute path to preview.png
   },
   robots: {
     index: true,
@@ -57,7 +69,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  
 };
 
 export default function RootLayout({
