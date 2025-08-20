@@ -21,7 +21,7 @@ export function SiteHeader() {
   const [isSheetOpen, setIsSheetOpen] = React.useState(false);
 
   return (
-    <header className={cn("sticky top-0 z-50 w-full border-b border-transparent", "glass neu-card-dark")}>
+    <header className={cn("sticky top-0 z-50 w-full border-b border-white/20 bg-white/20 shadow-inner backdrop-blur-lg")}>
       <div className="container flex h-14 items-center">
         <div className="mr-4 flex items-center">
           <Link href="/" className="flex items-center space-x-2" aria-label="Homepage">
