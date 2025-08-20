@@ -55,7 +55,7 @@ const SkillCard = ({ category, skills }: { category: Category; skills: (typeof s
     "relative bg-card text-card-foreground rounded-2xl shadow-md p-6 w-64 flex flex-col h-full overflow-hidden",
     "bg-cover bg-center",
     {
-      "aurora-candy-card": category === "frontend",
+      "aurora-candy-card text-yellow-300": category === "frontend",
       "glass-whitish text-foreground": category === "tools",
       "neu-silver": category === "others",
       "text-white": category === "backend" || category === "databases",
