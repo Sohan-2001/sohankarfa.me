@@ -240,12 +240,12 @@
   }
   
   .aurora-candy-card::before {
-    background: radial-gradient(circle at 25% 25%, #ff00ff, #00ffff 50%, transparent 70%);
+    background: radial-gradient(circle at 25% 25%, #ffffff, #000000 50%, transparent 70%);
     animation: aurora-candy 15s linear infinite;
   }
 
   .aurora-candy-card::after {
-    background: radial-gradient(circle at 75% 75%, #00ff00, #ffff00 50%, transparent 70%);
+    background: radial-gradient(circle at 75% 75%, #000000, #ffffff 50%, transparent 70%);
     animation: aurora-candy 15s linear infinite reverse;
   }
   
@@ -281,10 +281,11 @@
 
 
   .glass-whitish {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 215, 0, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 215, 0, 0.9);
+    box-shadow: inset 0px 1px 4px rgba(255, 215, 0, 0.6);
   }
 
   .neu-silver {
@@ -337,4 +338,15 @@
     
 
     
+
+
+
+
+    
+
+    
+
+    
+
+
 
