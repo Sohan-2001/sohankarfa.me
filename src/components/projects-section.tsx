@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 
 const projects = [
   {
-    title: "AssesMint – AI-Powered Exam Platform",
+    title: "AssessMint – AI-Powered Exam Platform",
     description: "An intelligent exam platform designed to streamline assessments with AI-driven question generation and automated grading. AssesMint enhances exam security with advanced proctoring features while providing a seamless experience for both educators and students.",
     image: "https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/GlobalSol%20Tech/Gemini_Generated_Image_twk5vutwk5vutwk5.png",
     alt: "Screenshot of the AssesMint AI-Powered Exam Platform",
