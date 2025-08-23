@@ -10,7 +10,7 @@ const projects = [
   {
     title: "AssesMint – AI-Powered Exam Platform",
     description: "An intelligent exam platform designed to streamline assessments with AI-driven question generation and automated grading. AssesMint enhances exam security with advanced proctoring features while providing a seamless experience for both educators and students.",
-    image: "https://assessmint-seven.vercel.app/_next/image?url=https%3A%2F%2Fsw0u7owaczjz29lf.public.blob.vercel-storage.com%2FGemini_Generated_Image_k1wslck1wslck1ws.png&w=1920&q=75",
+    image: "https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/GlobalSol%20Tech/Gemini_Generated_Image_twk5vutwk5vutwk5.png",
     alt: "Screenshot of the AssesMint AI-Powered Exam Platform",
     imageHint: "AI exam platform",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Genkit AI", "Flask"],
