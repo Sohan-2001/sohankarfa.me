@@ -1,7 +1,7 @@
 
 const experienceData = [
   {
-    date: "February 2025 – Present",
+    date: "February 2025 – June 2025",
     title: "Software Engineer — Accenture",
     company: "Position: SAP ABAP Developer",
     description: "Develop and enhance SAP ABAP programs, reports, and interfaces. Collaborate with functional teams to deliver business process improvements and ensure seamless integration with other systems.",
