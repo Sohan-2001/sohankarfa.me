@@ -336,7 +336,15 @@
     50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
 }
     
+@keyframes preloader-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
+@keyframes preloader-pulse {
+  0%, 100% { transform: scale(0.5); opacity: 0.5; }
+  50% { transform: scale(1); opacity: 1; }
+}
     
 
 
@@ -347,6 +355,7 @@
     
 
     
+
 
 
 
