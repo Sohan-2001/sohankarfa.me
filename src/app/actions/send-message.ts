@@ -1,6 +1,8 @@
 "use server";
 
 import { z } from 'zod';
+import Mailgun from 'mailgun.js';
+import FormData from 'form-data';
 
 const schema = z.object({
   name: z.string({ required_error: 'Name is required.' }).min(2, { message: 'Name must be at least 2 characters.' }),
@@ -32,56 +34,39 @@ export async function sendMessage(prevState: FormState, formData: FormData): Pro
   }
 
   const { name, email, message } = validatedFields.data;
-  
-  // Construct the message body to include sender's info
-  const fullMessage = `
-    New message from: ${name}
-    Sender's Email: ${email}
-    
-    Message:
-    ${message}
-  `;
-  
-  // The Flask API will receive this data and is responsible for sending the email.
-  const emailPayload = {
-    email: 'sohan.karfa@gmail.com', // The fixed recipient
-    message: fullMessage,
+
+  const mailgun = new Mailgun(FormData);
+  const mg = mailgun.client({
+    username: 'api',
+    key: process.env.MAILGUN_API_KEY || '',
+  });
+
+  const mailgunDomain = 'sandboxb9504cf061744194af9cc5c66705a574.mailgun.org';
+
+  const emailData = {
+    from: `Mailgun Sandbox <postmaster@${mailgunDomain}>`,
+    to: ['sohan.karfa@gmail.com'],
+    subject: `New message from ${name} via portfolio`,
+    text: `You have a new message from ${name} (${email}):\n\n${message}`,
+    html: `
+      <h3>New Message via Portfolio Contact Form</h3>
+      <p><strong>From:</strong> ${name}</p>
+      <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+      <hr>
+      <p><strong>Message:</strong></p>
+      <p>${message.replace(/\n/g, '<br>')}</p>
+    `,
   };
 
   try {
-    const response = await fetch('https://sarma.pythonanywhere.com/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(emailPayload),
-    });
-
-    if (!response.ok) {
-        const errorResult = await response.json().catch(() => ({ error: 'Unknown API error' }));
-        console.error('API Error Response:', errorResult);
-        return { 
-          message: `Failed to send email. API returned status ${response.status}: ${errorResult.error || 'Unknown error'}`,
-          errors: {}
-        };
-    }
-
-    const result = await response.json();
-
-    if (result.success === 1) {
-      return { message: 'Your message has been sent successfully!' };
-    } else {
-      console.error('API Error Response:', result);
-      return { 
-        message: `Failed to send email: ${result.error || 'Unknown error from API'}`,
-        errors: {}
-      };
-    }
+    const data = await mg.messages.create(mailgunDomain, emailData);
+    console.log(data); // For server-side logging
+    return { message: 'Your message has been sent successfully!' };
   } catch (error) {
-    console.error('Fetch API Error:', error);
-    let errorMessage = 'An unexpected error occurred. Please try again later.';
+    console.error('Mailgun Error:', error);
+    let errorMessage = 'An unexpected error occurred while sending the email. Please try again later.';
     if (error instanceof Error) {
-        errorMessage = error.message;
+        errorMessage = `Failed to send email: ${error.message}`;
     }
     return { 
       message: errorMessage,
