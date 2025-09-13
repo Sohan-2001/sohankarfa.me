@@ -10,7 +10,7 @@ const projects = [
   {
     title: "News Odia",
     description: "A comprehensive news portal featuring automated content aggregation via GitHub Actions cron jobs, secure user authentication with Google OAuth, and real-time data management using Firestore. Built with Next.js, Tailwind CSS, and a REST API for a seamless user experience.",
-    image: "https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/news-odia.png",
+    image: "https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/Screenshot%202025-09-13%20195906.png",
     alt: "Screenshot of News Odia website",
     imageHint: "news website homepage",
     stack: ["Next.js", "Tailwind CSS", "Firebase", "Google OAuth", "GitHub Actions"],
