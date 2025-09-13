@@ -3,39 +3,19 @@ import Link from "next/link"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Github, ExternalLink } from "lucide-react"
+import { Github, ExternalLink, Lock } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const projects = [
   {
-    title: "AssesMint – AI-Powered Exam Platform",
-    description: "An intelligent exam platform designed to streamline assessments with AI-driven question generation and automated grading. AssesMint enhances exam security with advanced proctoring features while providing a seamless experience for both educators and students.",
-    image: "https://assessmint-seven.vercel.app/_next/image?url=https%3A%2F%2Fsw0u7owaczjz29lf.public.blob.vercel-storage.com%2FGemini_Generated_Image_k1wslck1wslck1ws.png&w=1920&q=75",
-    alt: "Screenshot of the AssesMint AI-Powered Exam Platform",
-    imageHint: "AI exam platform",
-    stack: ["Next.js", "TypeScript", "PostgreSQL", "Genkit AI", "Flask"],
-    demoUrl: "https://assessmint-seven.vercel.app/",
-    repoUrl: "https://github.com/Sohan-2001/assessmint",
-  },
-  {
-    title: "Email Sending API – FastAPI-based Email Service",
-    description: "A robust and secure email sending API built with FastAPI, designed for easy integration into any application. It provides a scalable solution for handling transactional emails, complete with attachment support and secure credential management.",
-    image: "https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/Gemini_Generated_Image_6hatvy6hatvy6hat.png",
-    alt: "Code snippet illustrating the Email Sending API",
-    imageHint: "API code",
-    stack: ["FastAPI", "Python", "Pydantic", "Uvicorn"],
-    demoUrl: null,
-    repoUrl: "https://github.com/Sohan-2001/email-send",
-  },
-  {
-    title: "TruthSleuth - AI-Powered News Verification Platform",
-    description: "An AI-powered platform designed to combat misinformation by delivering instant truthfulness scores for news text, images, and URLs. TruthSleuth fosters a community of fact-checkers and gamifies contributions with a leaderboard, making it an essential tool for verifying media integrity.",
-    image: "https://scontent.fccu1-2.fna.fbcdn.net/v/t39.30808-6/522388819_122120903408917572_6616502891986461463_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=51lR94neCKwQ7kNvwEjNx-z&_nc_oc=AdlhCAxjT0VzP-ofYm8HMuz7FUPOb8Q3YK9A-kQ-4k9-ojCdRAjjwSghiqBbsO3E9lA&_nc_zt=23&_nc_ht=scontent.fccu1-2.fna&_nc_gid=5ElI_MwVWZSy250nh8EBIQ&oh=00_AfWkcMeYr7MFvqlJGkzieGlLyr4U8lMdsrwuXabKIF-m-A&oe=68A017B4",
-    alt: "Screenshot of the TruthSleuth News Verification Platform",
-    imageHint: "fact checking news verification",
-    stack: ["Next.js", "Genkit AI", "Tailwind CSS", "PostgreSQL"],
-    demoUrl: "https://truthsleuth.vercel.app/",
-    repoUrl: "https://github.com/Sohan-2001/TruthSleuth",
+    title: "News Odia",
+    description: "A comprehensive news portal featuring automated content aggregation via GitHub Actions cron jobs, secure user authentication with Google OAuth, and real-time data management using Firestore. Built with Next.js, Tailwind CSS, and a REST API for a seamless user experience.",
+    image: "https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/news-odia.png",
+    alt: "Screenshot of News Odia website",
+    imageHint: "news website homepage",
+    stack: ["Next.js", "Tailwind CSS", "Firebase", "Google OAuth", "GitHub Actions"],
+    demoUrl: "https://newsodia.com/",
+    repoUrl: null, // Private repo
   },
   {
     title: "WhisperWire - Safe Chat Application",
@@ -61,6 +41,8 @@ const techColorMap: { [key: string]: string } = {
     "Uvicorn": "bg-purple-500 text-white border-purple-400",
     "Tailwind CSS": "bg-cyan-500 text-white border-cyan-400",
     "Firebase": "bg-yellow-500 text-black border-yellow-400",
+    "Google OAuth": "bg-red-500 text-white border-red-400",
+    "GitHub Actions": "bg-blue-800 text-white border-blue-700",
 };
 
 export function ProjectsSection() {
@@ -93,11 +75,17 @@ export function ProjectsSection() {
                 </div>
               </CardContent>
               <CardFooter className="flex justify-end gap-4">
-                <Button variant="outline" asChild className="rounded-none">
-                  <Link href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-2 h-4 w-4" /> GitHub
-                  </Link>
-                </Button>
+                {project.repoUrl ? (
+                    <Button variant="outline" asChild className="rounded-none">
+                      <Link href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-2 h-4 w-4" /> GitHub
+                      </Link>
+                    </Button>
+                ) : (
+                    <Button variant="outline" disabled className="rounded-none">
+                      <Lock className="mr-2 h-4 w-4" /> Private Repo
+                    </Button>
+                )}
                 {project.demoUrl && (
                   <Button asChild className="rounded-none">
                     <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
