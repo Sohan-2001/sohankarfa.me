@@ -18,14 +18,14 @@ const projects = [
     repoUrl: null, // Private repo
   },
   {
-    title: "WhisperWire - Safe Chat Application",
-    description: "WhisperWire is an enterprise-grade secure chat application designed to foster safe and productive conversations. It leverages real-time AI moderation to proactively filter toxic language, ensuring a respectful communication environment. With a scalable architecture built on Firebase and a responsive UI, it's the ideal solution for teams and individuals who prioritize professional and secure collaboration.",
-    image: "https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/Gemini_Generated_Image_630r5d630r5d630r.png",
-    alt: "Screenshot of the WhisperWire Safe Chat Application",
-    imageHint: "secure chat application",
-    stack: ["Next.js", "Firebase", "Genkit AI", "Tailwind CSS"],
-    demoUrl: "https://whisper-wire-eight.vercel.app/",
-    repoUrl: "https://github.com/Sohan-2001/WhisperWire",
+    title: "SMATE",
+    description: "A powerful content creation tool with real-time editing, AI-powered writing assistance (grammar correction, tone change, summarization), and a chat-based AI assistant for brainstorming and content generation.",
+    image: "https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/smate-gamma.vercel.app_.png",
+    alt: "Screenshot of the SMATE application",
+    imageHint: "AI writing assistant application",
+    stack: ["Next.js", "Tailwind CSS", "Firestore", "Google OAuth", "Razorpay"],
+    demoUrl: "https://smate-gamma.vercel.app/",
+    repoUrl: "https://github.com/Sohan-2001/smate",
   },
 ]
 
@@ -43,6 +43,8 @@ const techColorMap: { [key: string]: string } = {
     "Firebase": "bg-yellow-500 text-black border-yellow-400",
     "Google OAuth": "bg-red-500 text-white border-red-400",
     "GitHub Actions": "bg-blue-800 text-white border-blue-700",
+    "Firestore": "bg-orange-400 text-white border-orange-300",
+    "Razorpay": "bg-blue-500 text-white border-blue-400"
 };
 
 export function ProjectsSection() {
