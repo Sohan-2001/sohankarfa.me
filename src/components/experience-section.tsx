@@ -12,12 +12,6 @@ const experienceData = [
     company: "Freelance",
     description: "Freelance development of scalable web applications using modern frameworks. Handle both frontend and backend tasks, ensuring high performance and user-friendly experiences for various client projects.",
   },
-  {
-    date: "July 2025 – Present",
-    title: "LLM Evaluator — SOUL Company",
-    company: "AI Model Quality",
-    description: "Evaluate and test large language model outputs for quality, relevance, and accuracy. Provide structured feedback to improve AI model performance.",
-  },
 ];
 
 const educationData = [
