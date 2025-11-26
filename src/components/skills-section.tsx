@@ -100,7 +100,7 @@ const UsageDetails = ({ category, isVisible }: { category: Category, isVisible: 
       <h3 className="text-2xl font-bold mb-4 flex items-center gap-2"><Info className="h-6 w-6 text-primary" /> {title} Usage</h3>
       <ul className="space-y-4 text-muted-foreground">
         {skills.map(skill => (
-          <li key={skill.name} className="grid grid-cols-3 gap-x-4">
+          <li key={skill.name} className="grid grid-cols-3 gap-x-8">
             <div className="col-span-1 font-semibold text-foreground text-right whitespace-nowrap">
               {skill.name}:
             </div>
