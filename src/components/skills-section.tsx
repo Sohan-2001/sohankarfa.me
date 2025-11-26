@@ -98,11 +98,15 @@ const UsageDetails = ({ category, isVisible }: { category: Category, isVisible: 
       isVisible ? 'animate-fade-up' : 'opacity-0'
     )}>
       <h3 className="text-2xl font-bold mb-4 flex items-center gap-2"><Info className="h-6 w-6 text-primary" /> {title} Usage</h3>
-      <ul className="space-y-3 text-muted-foreground">
+      <ul className="space-y-4 text-muted-foreground">
         {skills.map(skill => (
-          <li key={skill.name} className="flex gap-2">
-            <span className="font-semibold text-foreground">{skill.name}:</span>
-            <span>{skill.description}</span>
+          <li key={skill.name} className="grid grid-cols-3 gap-x-4">
+            <div className="col-span-1 font-semibold text-foreground text-right">
+              {skill.name}:
+            </div>
+            <div className="col-span-2">
+              {skill.description}
+            </div>
           </li>
         ))}
       </ul>
