@@ -52,45 +52,30 @@ const SkillCard = ({ category, skills }: { category: Category; skills: (typeof s
   const Icon = categoryIcons[category]
   const title = category === "tools" ? "Tools & DevOps" : category.charAt(0).toUpperCase() + category.slice(1);
   const cardClasses = cn(
-    "relative bg-card text-card-foreground rounded-2xl shadow-md p-6 w-64 flex flex-col h-full overflow-hidden",
-    "bg-cover bg-center",
+    "relative text-white rounded-2xl shadow-md p-6 w-64 flex flex-col h-full overflow-hidden",
     {
-      "aurora-candy-card text-yellow-300": category === "frontend",
-      "text-white": category === "backend" || category === "databases" || category === 'tools',
-      "text-foreground": category === "others",
+      "bg-teal-500": category === "frontend",
+      "bg-indigo-500": category === "backend",
+      "bg-violet-500": category === "databases",
+      "bg-slate-500": category === "tools",
+      "bg-amber-500": category === "others",
     }
   );
-  
-  const cardStyle = 
-    category === 'backend' ? {
-      backgroundImage: "url('https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/1d30b5a0c298c02edaf2f501b22a6587.gif')",
-    } : 
-    category === 'databases' ? {
-      backgroundImage: "url('https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/Gemini_Generated_Image_6vtkjh6vtkjh6vtk.png')",
-    } :
-    category === 'tools' ? {
-      backgroundImage: "url('https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/Gemini_Generated_Image_h2gq9ch2gq9ch2gq.png')",
-    } :
-    category === 'others' ? {
-        backgroundImage: "url('https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/Gemini_Generated_Image_3da8kb3da8kb3da8.png')",
-    } :
-    {};
 
   return (
-    <div className={cardClasses} style={cardStyle}>
-      {(category === 'backend' || category === 'databases' || category === 'tools' || category === 'others') && <div className="absolute inset-0 bg-black/60 z-0"/>}
+    <div className={cardClasses}>
       <div className="relative z-10">
         <div className="flex items-center gap-3 mb-4">
-          <Icon className="h-6 w-6 text-primary" />
+          <Icon className="h-6 w-6 text-white/80" />
           <h3 className="text-xl font-bold">{title}</h3>
         </div>
         <div className="space-y-4">
           {skills.map((skill) => (
             <div key={skill.name}>
               <span className="font-medium text-sm">{skill.name}</span>
-              <div className="w-full h-2 rounded-full bg-secondary mt-1">
+              <div className="w-full h-2 rounded-full bg-white/20 mt-1">
                 <div
-                  className="h-full rounded-full bg-primary"
+                  className="h-full rounded-full bg-white"
                   style={{ width: `${skill.level}%` }}
                   aria-label={`${skill.name} proficiency ${skill.level}%`}
                 />
@@ -233,5 +218,3 @@ export function SkillsSection() {
     </section>
   )
 }
-
-    
