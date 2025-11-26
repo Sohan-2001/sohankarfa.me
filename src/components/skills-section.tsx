@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Code, Server, Database, Cog, Star, ChevronLeft, ChevronRight, Info } from "lucide-react"
+import { Code, Server, Database, Cog, Star, ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
@@ -88,33 +88,6 @@ const SkillCard = ({ category, skills }: { category: Category; skills: (typeof s
   )
 }
 
-const UsageDetails = ({ category, isVisible }: { category: Category, isVisible: boolean }) => {
-  const skills = skillsData[category];
-  const title = category === "tools" ? "Tools & DevOps" : category.charAt(0).toUpperCase() + category.slice(1);
-
-  return (
-    <div className={cn(
-      "bg-card text-card-foreground rounded-2xl shadow-md p-6 w-full max-w-md transition-all duration-500",
-      isVisible ? 'animate-fade-up' : 'opacity-0'
-    )}>
-      <h3 className="text-2xl font-bold mb-4 flex items-center gap-2"><Info className="h-6 w-6 text-primary" /> {title} Usage</h3>
-      <ul className="space-y-4 text-muted-foreground">
-        {skills.map(skill => (
-          <li key={skill.name} className="grid grid-cols-1 md:grid-cols-3 gap-x-8">
-            <div className="col-span-1 font-semibold text-foreground md:text-right whitespace-nowrap">
-              {skill.name}:
-            </div>
-            <div className="md:col-span-2">
-              {skill.description}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-
 export function SkillsSection() {
   const categories = Object.keys(skillsData) as Category[]
   const [activeIndex, setActiveIndex] = React.useState(0)
@@ -155,8 +128,6 @@ export function SkillsSection() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const activeCategory = categories[activeIndex]
-
   return (
     <section id="skills" className="py-20 md:py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
@@ -183,8 +154,8 @@ export function SkillsSection() {
                 </Button>
             </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center justify-items-center px-4 sm:px-0">
-          <div className="relative h-80 sm:h-96 w-full flex items-center justify-center" style={{ perspective: '1000px' }}>
+        <div className="flex justify-center items-center px-4 sm:px-0">
+          <div className="relative h-96 w-full max-w-md flex items-center justify-center" style={{ perspective: '1000px' }}>
             <div
               className="absolute w-full h-full transition-transform duration-500 ease-in-out"
               style={{
@@ -213,9 +184,6 @@ export function SkillsSection() {
                 )
               })}
             </div>
-          </div>
-          <div className="w-full max-w-md mx-auto mt-8 lg:mt-0">
-            <UsageDetails category={activeCategory} isVisible={true} />
           </div>
         </div>
       </div>
