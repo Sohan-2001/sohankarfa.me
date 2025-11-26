@@ -100,11 +100,11 @@ const UsageDetails = ({ category, isVisible }: { category: Category, isVisible: 
       <h3 className="text-2xl font-bold mb-4 flex items-center gap-2"><Info className="h-6 w-6 text-primary" /> {title} Usage</h3>
       <ul className="space-y-4 text-muted-foreground">
         {skills.map(skill => (
-          <li key={skill.name} className="grid grid-cols-3 gap-x-8">
-            <div className="col-span-1 font-semibold text-foreground text-right whitespace-nowrap">
+          <li key={skill.name} className="grid grid-cols-1 md:grid-cols-3 gap-x-8">
+            <div className="col-span-1 font-semibold text-foreground md:text-right whitespace-nowrap">
               {skill.name}:
             </div>
-            <div className="col-span-2">
+            <div className="md:col-span-2">
               {skill.description}
             </div>
           </li>
@@ -214,7 +214,7 @@ export function SkillsSection() {
               })}
             </div>
           </div>
-          <div className="w-full max-w-md mx-auto mt-8 lg:mt-0 hidden lg:block">
+          <div className="w-full max-w-md mx-auto mt-8 lg:mt-0">
             <UsageDetails category={activeCategory} isVisible={true} />
           </div>
         </div>
