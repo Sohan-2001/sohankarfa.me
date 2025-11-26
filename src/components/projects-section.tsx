@@ -26,7 +26,7 @@ const projects = [
     imageHint: "AI chat application astrology",
     stack: ["Next.js", "Tailwind CSS", "Firestore", "Google OAuth"],
     demoUrl: "https://aiastrologer-ten.vercel.app/",
-    repoUrl: "https://github.com/Sohan-2001/smate",
+    repoUrl: "https://github.com/Sohan-2001/A.I-Astrologer",
   },
 ]
 
