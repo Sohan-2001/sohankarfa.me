@@ -56,9 +56,8 @@ const SkillCard = ({ category, skills }: { category: Category; skills: (typeof s
     "bg-cover bg-center",
     {
       "aurora-candy-card text-yellow-300": category === "frontend",
-      "glass-whitish text-foreground": category === "tools",
-      "neu-silver": category === "others",
-      "text-white": category === "backend" || category === "databases",
+      "text-white": category === "backend" || category === "databases" || category === 'tools',
+      "text-foreground": category === "others",
     }
   );
   
@@ -69,11 +68,17 @@ const SkillCard = ({ category, skills }: { category: Category; skills: (typeof s
     category === 'databases' ? {
       backgroundImage: "url('https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/Gemini_Generated_Image_6vtkjh6vtkjh6vtk.png')",
     } :
+    category === 'tools' ? {
+      backgroundImage: "url('https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/Gemini_Generated_Image_h2gq9ch2gq9ch2gq.png')",
+    } :
+    category === 'others' ? {
+        backgroundImage: "url('https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/Gemini_Generated_Image_3da8kb3da8kb3da8.png')",
+    } :
     {};
 
   return (
     <div className={cardClasses} style={cardStyle}>
-      {(category === 'backend' || category === 'databases') && <div className="absolute inset-0 bg-black/60 z-0"/>}
+      {(category === 'backend' || category === 'databases' || category === 'tools' || category === 'others') && <div className="absolute inset-0 bg-black/60 z-0"/>}
       <div className="relative z-10">
         <div className="flex items-center gap-3 mb-4">
           <Icon className="h-6 w-6 text-primary" />
@@ -228,3 +233,5 @@ export function SkillsSection() {
     </section>
   )
 }
+
+    

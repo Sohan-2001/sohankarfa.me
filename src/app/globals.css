@@ -279,26 +279,6 @@
     animation: aurora-candy 18s linear infinite reverse;
   }
 
-
-  .glass-whitish {
-    background: rgba(255, 215, 0, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 215, 0, 0.9);
-    box-shadow: inset 0px 1px 4px rgba(255, 215, 0, 0.6);
-  }
-
-  .neu-silver {
-    background-color: hsl(210, 15%, 95%);
-    box-shadow: 8px 8px 16px hsl(210, 15%, 85%), -8px -8px 16px hsl(0, 0%, 100%);
-  }
-
-  .dark .neu-silver {
-    background-color: hsl(217, 18%, 22%);
-    box-shadow: 8px 8px 16px hsl(217, 18%, 16%), -8px -8px 16px hsl(217, 18%, 28%);
-    color: hsl(210, 40%, 98%);
-  }
-
   .neu-light {
     border-radius: 0.5rem;
     background: hsl(var(--secondary));
@@ -359,3 +339,6 @@
 
 
 
+
+
+    
