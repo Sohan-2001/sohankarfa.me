@@ -16,6 +16,7 @@ const projects = [
     stack: ["Next.js", "Tailwind CSS", "Firebase", "Google OAuth", "GitHub Actions"],
     demoUrl: "https://newsodia.com/",
     repoUrl: null, // Private repo
+    highlight: "Client Project (Freelancing)",
   },
   {
     title: "SMATE",
@@ -65,6 +66,13 @@ export function ProjectsSection() {
                   data-ai-hint={project.imageHint}
                 />
                 <CardTitle className="pt-4">{project.title}</CardTitle>
+                 {project.highlight && (
+                  <div className="mt-2">
+                    <Badge variant="secondary" className="text-xs font-semibold">
+                      {project.highlight}
+                    </Badge>
+                  </div>
+                )}
               </CardHeader>
               <CardContent className="flex-grow">
                 <CardDescription>
