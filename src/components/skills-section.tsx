@@ -52,13 +52,13 @@ const SkillCard = ({ category, skills }: { category: Category; skills: (typeof s
   const Icon = categoryIcons[category]
   const title = category === "tools" ? "Tools & DevOps" : category.charAt(0).toUpperCase() + category.slice(1);
   const cardClasses = cn(
-    "relative text-white rounded-2xl shadow-md p-6 w-64 flex flex-col h-full overflow-hidden",
+    "relative text-white rounded-2xl shadow-md p-6 w-64 flex flex-col h-full overflow-hidden border-4",
     {
-      "bg-teal-500": category === "frontend",
-      "bg-indigo-500": category === "backend",
-      "bg-violet-500": category === "databases",
-      "bg-slate-500": category === "tools",
-      "bg-amber-500": category === "others",
+      "bg-teal-500 border-teal-700": category === "frontend",
+      "bg-indigo-500 border-indigo-700": category === "backend",
+      "bg-violet-500 border-violet-700": category === "databases",
+      "bg-slate-500 border-slate-700": category === "tools",
+      "bg-amber-500 border-amber-700": category === "others",
     }
   );
 
@@ -72,7 +72,7 @@ const SkillCard = ({ category, skills }: { category: Category; skills: (typeof s
         <div className="space-y-4">
           {skills.map((skill) => (
             <div key={skill.name}>
-              <span className="font-medium text-sm">{skill.name}</span>
+              <span className="font-medium text-sm whitespace-nowrap">{skill.name}</span>
               <div className="w-full h-2 rounded-full bg-white/20 mt-1">
                 <div
                   className="h-full rounded-full bg-white"
