@@ -14,7 +14,7 @@ const projects = [
     alt: "Screenshot of SELLnBUY marketplace",
     imageHint: "e-commerce marketplace homepage",
     stack: ["Next.js (App Router)", "Supabase (PostgreSQL, Auth, Storage)", "Tailwind CSS", "Razorpay API"],
-    demoUrl: null,
+    demoUrl: "https://www.sellnbuy.in/",
     repoUrl: null,
   },
   {
