@@ -15,7 +15,7 @@ Proven problem-solver with achievements in competitive coding, hackathons, and r
 development. Quick to adapt, collaborative, and always eager to learn new technologies.
           </p>
           <Button asChild className={cn("dark:btn-hologram", "neu-light text-stone-700")}>
-            <a href="https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/SOHAN%20KARFA%20-%20Resume%20PE.pdf" download>
+            <a href="https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/cv/Sohan_Karfa_CV.pdf" download>
               Download Resume <Download className="ml-2 h-5 w-5" />
             </a>
           </Button>
