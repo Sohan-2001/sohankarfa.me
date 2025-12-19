@@ -16,6 +16,7 @@ const projects = [
     stack: ["Next.js (App Router)", "Supabase (PostgreSQL, Auth, Storage)", "Tailwind CSS", "Razorpay API"],
     demoUrl: "https://www.sellnbuy.in/",
     repoUrl: null,
+    highlight: "Client Project (Freelancing)",
   },
   {
     title: "News Odia",
