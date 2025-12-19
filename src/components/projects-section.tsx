@@ -8,6 +8,16 @@ import { cn } from "@/lib/utils"
 
 const projects = [
   {
+    title: "SELLnBUY - Multi-Vendor E-Commerce Marketplace",
+    description: "Developed a full-stack marketplace supporting physical products, digital assets, and online courses with distinct dashboards for Admins, Vendors, and Buyers. Implemented robust security using Supabase Row Level Security (RLS) to ensure strict data isolation between vendors and granular role-based access control. Engineered a concurrency-safe inventory management system using custom PostgreSQL RPC functions to perform atomic stock deductions and prevent overselling. Built a dynamic content management system allowing admins to curate homepage sections and featured tags directly from the dashboard without code deployment. Integrated Razorpay for payment processing and optimized the Next.js frontend with server-side rendering for SEO and fast initial load times.",
+    image: "https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/Screenshot%202025-12-19%20160950.png",
+    alt: "Screenshot of SELLnBUY marketplace",
+    imageHint: "e-commerce marketplace homepage",
+    stack: ["Next.js (App Router)", "Supabase (PostgreSQL, Auth, Storage)", "Tailwind CSS", "Razorpay API"],
+    demoUrl: null,
+    repoUrl: null,
+  },
+  {
     title: "News Odia",
     description: "A comprehensive news portal featuring automated content aggregation via GitHub Actions cron jobs, secure user authentication with Google OAuth, and real-time data management using Firestore. Built with Next.js, Tailwind CSS, and a REST API for a seamless user experience.",
     image: "https://sxldi6vsg8pc7vjq.public.blob.vercel-storage.com/Screenshot%202025-09-13%20195906.png",
@@ -32,6 +42,9 @@ const projects = [
 
 const techColorMap: { [key: string]: string } = {
     "Next.js": "bg-black text-white border-gray-700",
+    "Next.js (App Router)": "bg-black text-white border-gray-700",
+    "Supabase (PostgreSQL, Auth, Storage)": "bg-green-600 text-white border-green-500",
+    "Razorpay API": "bg-blue-500 text-white border-blue-400",
     "TypeScript": "bg-blue-600 text-white border-blue-500",
     "PostgreSQL": "bg-indigo-400 text-white border-indigo-300",
     "Genkit AI": "bg-green-500 text-white border-green-400",
@@ -96,12 +109,18 @@ export function ProjectsSection() {
                       <Lock className="mr-2 h-4 w-4" /> Private Repo
                     </Button>
                 )}
-                {project.demoUrl && (
+                {project.demoUrl ? (
                   <Button asChild className="rounded-none">
                     <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
                     </Link>
                   </Button>
+                ) : (
+                   <Button asChild className="rounded-none" disabled>
+                      <div className="flex items-center">
+                        <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                      </div>
+                    </Button>
                 )}
               </CardFooter>
             </Card>
